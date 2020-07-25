@@ -54,9 +54,11 @@ Alternate install methods
 - Binary Archives
 - .NET Global tool
 
-Not currently supported
+Apt repo not currently available
 
 - Ubuntu 20.04
+
+It is recommended that Ubuntu 20.04 install the [snap]: #snap-package
 
 > [!NOTE]
 > PowerShell can only support the distributions that are supported by .NET. See the
