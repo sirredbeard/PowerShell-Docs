@@ -1,4 +1,5 @@
 ---
+description:  Certificate 
 keywords: powershell,cmdlet
 Locale: en-US
 ms.date: 06/04/2020
@@ -182,10 +183,11 @@ the following attributes:
 The **NotAfter** property stores the certificate expiration date.
 
 ```powershell
+[DateTime] $ValidThrough = (Get-Date) + (New-TimeSpan -Days 30)
 Get-ChildItem -Path cert:\* -Recurse -DNSName "*fabrikam*" `
   -EKU "*Client Authentication*" | Where-Object {
                                      $_.SendAsTrustedIssuer -and `
-                                     $_.NotAfter -gt (get-date).AddDays.(30)
+                                     $_.NotAfter -gt $ValidThrough
                                    }
 ```
 

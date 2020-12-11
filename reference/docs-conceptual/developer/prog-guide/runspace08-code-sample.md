@@ -1,13 +1,8 @@
 ---
-title: "RunSpace08 Code Sample | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 0f286201-8a02-4b00-9a2c-1b833ccdbdbf
-caps.latest.revision: 7
+ms.date: 09/13/2016
+ms.topic: reference
+title: RunSpace08 Code Sample
+description: RunSpace08 Code Sample
 ---
 # RunSpace08 Code Sample
 

@@ -1,13 +1,8 @@
 ---
-title: "How to Create the Cmdlet Help File | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 4a88dd89-6beb-494f-9e2a-6b10baed1a8d
-caps.latest.revision: 17
+ms.date: 09/13/2016
+ms.topic: reference
+title: How to Create the Cmdlet Help File
+description: How to Create the Cmdlet Help File
 ---
 # How to Create the Cmdlet Help File
 

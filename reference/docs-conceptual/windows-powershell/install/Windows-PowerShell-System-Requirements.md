@@ -2,6 +2,7 @@
 ms.date:  12/06/2019
 keywords:  powershell,cmdlet
 title:  Windows PowerShell System Requirements
+description: This article lists the system requirements for Windows PowerShell 3.0, Windows PowerShell 4.0, Windows PowerShell 5.0, and Windows PowerShell 5.1.
 ---
 
 # Windows PowerShell System Requirements
@@ -11,7 +12,7 @@ Windows PowerShell 5.0, and Windows PowerShell 5.1. And, special features, such 
 PowerShell Integrated Scripting Environment (ISE), Common Information Model (CIM) commands, and
 workflows.
 
-Windows® 8.1 and Windows Server® 2012 R2 include all required programs. This article is designed for
+Windows&reg; 8.1 and Windows Server&reg; 2012 R2 include all required programs. This article is designed for
 users of earlier releases of Windows.
 
 ## Operating system requirements
@@ -62,8 +63,8 @@ install the specified version of the Windows Management Framework for your opera
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | Windows 8.1                                 | Installed by default                                                                                       |
 | Windows Server 2012 R2                      | Installed by default                                                                                       |
-| Windows® 7 with Service Pack 1              | Install [Windows Management Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) |
-| Windows Server® 2008 R2 with Service Pack 1 | Install [Windows Management Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) |
+| Windows&reg; 7 with Service Pack 1              | Install [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) |
+| Windows Server&reg; 2008 R2 with Service Pack 1 | Install [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) |
 
 ### Windows PowerShell 3.0
 
@@ -74,9 +75,9 @@ install the specified version of the Windows Management Framework for your opera
 | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
 | Windows 8                                   | Installed by default                                                                                       |
 | Windows Server 2012                         | Installed by default                                                                                       |
-| Windows® 7 with Service Pack 1              | Install [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) |
-| Windows Server® 2008 R2 with Service Pack 1 | Install [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) |
-| Windows Server 2008 with Service Pack 2     | Install [Windows Management Framework 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) |
+| Windows&reg; 7 with Service Pack 1              | Install [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) |
+| Windows Server&reg; 2008 R2 with Service Pack 1 | Install [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) |
+| Windows Server 2008 with Service Pack 2     | Install [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) |
 
 ## Microsoft .NET Framework requirements
 
@@ -94,7 +95,7 @@ Use the following links to download Microsoft .NET Framework from the Microsoft 
 |                     Version                      |                                                     Link                                                     |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
 | .NET Framework 4.5 (`dotNetFx45_Full_setup.exe`) | [Microsoft .NET Framework 4.5](https://go.microsoft.com/fwlink/?LinkID=242919)                               |
-| .NET Framework 4 (`dotNetFx40_Full_setup.exe`)   | [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/en-us/download/details.aspx?id=17851) |
+| .NET Framework 4 (`dotNetFx40_Full_setup.exe`)   | [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=17851) |
 
 ## Windows Management Framework 4.0
 
@@ -170,7 +171,7 @@ Windows PowerShell 2.0, Windows PowerShell 3.0, and Windows PowerShell 4.0 run i
 Preinstallation Environment (Windows PE). However, the following cmdlets aren't supported.
 
 - Background Intelligent Transfer Service (BITS) cmdlets. For more information, see
-  [BitsTransfer](/powershell/module/bitstransfer/?view=win10-ps).
+  [BitsTransfer](/powershell/module/bitstransfer/).
 - [Get-EventLog](/powershell/module/Microsoft.PowerShell.Management/Get-EventLog)
 - [Get-WinEvent](/powershell/module/Microsoft.PowerShell.Diagnostics/Get-WinEvent)
 - [Save-Help](/powershell/module/Microsoft.PowerShell.Core/Save-Help)

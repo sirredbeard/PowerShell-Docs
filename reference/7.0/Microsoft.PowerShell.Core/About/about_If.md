@@ -1,4 +1,5 @@
 ---
+description: Describes a language command you can use to run statement lists based on the results of one or more conditional tests. 
 keywords: powershell,cmdlet
 Locale: en-US
 ms.date: 06/09/2017
@@ -119,6 +120,14 @@ $message = (Test-Path $path) ? "Path exists" : "Path not found"
 
 In this example, the value of `$message` is "Path exists" when `Test-Path` returns `$true`. When
 `Test-Path` returns `$false`, the value of `$message` is "Path not found".
+
+```powershell
+$service = Get-Service BITS
+$service.Status -eq 'Running' ? (Stop-Service $service) : (Start-Service $service)
+```
+
+In this example, if the service is running, it is stopped, and if its status is not **Running**,
+it is started.
 
 ## SEE ALSO
 

@@ -1,7 +1,7 @@
 ---
 ms.date:  12/31/2019
-keywords:  powershell,cmdlet
 title:  The ISEOptions Object
+description: The ISEOptions object represents various settings for Windows PowerShell ISE.
 ---
 
 # The ISEOptions Object
@@ -528,10 +528,10 @@ $psISE.Options.UseEnterToSelectInConsolePaneIntellisense = $true
 
 Supported in Windows PowerShell ISE 3.0 and later, and not present in earlier versions.
 
-Specifies whether the locally installed Help or the online TechNet Library Help appears when you
-press <kbd>F1</kbd> with the cursor positioned in a keyword. If set to `$true`, then a pop-up window shows
-content from the locally installed Help. You can install the Help files by running the `Update-Help`
-command. If set to `$false`, then your browser opens to a page in the TechNet Library.
+Specifies whether the locally installed Help or the online Help appears when you press <kbd>F1</kbd>
+with the cursor positioned in a keyword. If set to `$true`, then a pop-up window shows content from
+the locally installed Help. You can install the Help files by running the `Update-Help` command. If
+set to `$false`, then your browser opens to a page on docs.microsoft.com.
 
 ```powershell
 # Sets the option for the online help to be displayed.

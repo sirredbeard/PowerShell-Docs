@@ -1,10 +1,9 @@
 ---
 ms.date:  06/12/2017
-contributor:  JKeithB
-keywords:  gallery,powershell,cmdlet,psgallery
 title:  PowerShell Gallery FAQs
+description: Frequently asked questions about the PowerShell Gallery
 ---
-# Frequently Asked Questions
+# Frequently asked questions about the PowerShell Gallery
 
 ## What is a PowerShell module?
 
@@ -18,7 +17,7 @@ different types of PowerShell modules out there.
 A PowerShell script is a series of commands that are stored in a .ps1 file to enable reuse and
 sharing. PowerShell workflows are also PowerShell scripts, which outline a set of tasks and provide
 sequencing for those tasks. For more information, please visit
-[Getting Started with PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
+[Getting Started with PowerShell Workflow](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134242(v=ws.11)).
 
 ## How are PowerShell Scripts different from PowerShell Modules?
 
@@ -26,8 +25,8 @@ Modules are generally better for sharing, but we are enabling script sharing to 
 you to contribute workflows and scripts to the community. For more information, see the following
 blogs:
 
-- [Don't Write Scripts, Write PowerShell Modules](https://blogs.technet.microsoft.com/heyscriptingguy/2011/06/27/dont-write-scripts-write-powershell-modules/)
-- [Understanding PowerShell Modules](https://blogs.technet.microsoft.com/heyscriptingguy/2015/07/10/understanding-powershell-modules/)
+- [Don't Write Scripts, Write PowerShell Modules](https://devblogs.microsoft.com/scripting/dont-write-scripts-write-powershell-modules/)
+- [Understanding PowerShell Modules](https://devblogs.microsoft.com/scripting/understanding-powershell-modules/)
 
 ## How can I publish to the PowerShell Gallery?
 
@@ -212,7 +211,7 @@ other PackageManagement package providers. For example, when you are working wit
 galleries (such as the PowerShell Gallery), the PSModule package provider uses the NuGet Package
 Provider to work with the repository.
 
-![PowerShellGet Architecture](media/faqs/powershellgetArchitecture.png)
+![Diagram of the PowerShellGet Architecture](media/faqs/powershellgetArchitecture.png)
 
 Figure 1: PowerShellGet Architecture
 
@@ -233,13 +232,14 @@ Therefore, **PowerShellGet** requires one of the following operating systems:
 - Windows Server 2012 R2
 - Windows Server 2008 R2 SP1
 
-**PowerShellGet** also requires .NET Framework 4.5 or above. You can install .NET Framework 4.5 or
-above from [here](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+**PowerShellGet** also requires .NET Framework 4.5 or above. For more information, see
+[Install the .NET Framework for developers](/dotnet/framework/install/guide-for-developers).
 
 ## Is it possible to reserve names for packages that will be published in future?
 
 It is not possible to squat package names. If you feel that an existing package has taken the name
-which suits your package more, try [contacting the owner of the package](./how-to/working-with-packages/contacting-package-owners.md).
+which suits your package more, try
+[contacting the owner of the package](./how-to/working-with-packages/contacting-package-owners.md).
 If you didn't get response within a couple of weeks, you can contact support and the PowerShell
 Gallery team will look in to it.
 

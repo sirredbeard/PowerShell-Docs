@@ -474,7 +474,7 @@ telemetry even before the first run of PowerShell. We also plan on exposing this
 the insights we glean from the telemetry in the [community dashboard][community-dashboard]. You can
 find out more about how we use this data in this [blog post][telemetry-blog].
 
-[.NET Blog]: https://blogs.msdn.microsoft.com/dotnet/2016/09/26/introducing-net-standard
+[.NET Blog]: https://devblogs.microsoft.com/dotnet/introducing-net-standard/
 [.NET Core 2.0]: /dotnet/core/
 [.NET Standard]: /dotnet/standard/net-standard
 [breaking-changes]: breaking-changes-ps6.md
@@ -487,7 +487,7 @@ find out more about how we use this data in this [blog post][telemetry-blog].
 [github]: https://github.com/PowerShell/PowerShell
 [os_log]: https://developer.apple.com/documentation/os/logging
 [semi-annual]: /windows-server/get-started/semi-annual-channel-overview
-[ssh-remoting]: ../learn/remoting/SSH-Remoting-in-PowerShell-Core.md
+[ssh-remoting]: /powershell/scripting/learn/remoting/SSH-Remoting-in-PowerShell-Core
 [Syslog]: https://en.wikipedia.org/wiki/Syslog
 [telemetry-blog]: https://devblogs.microsoft.com/powershell/powershell-open-source-community-dashboard/
 [windowspsmodulepath]: https://www.powershellgallery.com/packages/WindowsPSModulePath/

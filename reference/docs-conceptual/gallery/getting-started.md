@@ -1,8 +1,7 @@
 ---
 ms.date:  06/12/2017
-contributor:  JKeithB
-keywords:  gallery,powershell,cmdlet,psgallery
 title:  Get Started with the PowerShell Gallery
+description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
 ---
 # Getting Started with the PowerShell Gallery
 
@@ -128,11 +127,15 @@ installed directly from the PowerShell Gallery.
 
 The PowerShell Gallery uses the following hostnames.
 
-- `psg-prod-eastus.azureedge.net` - the CDN hostname
-- `devopsgallerystorage.blob.core.windows.net` - the storage account hostname
-- `*.powershellgallery.com` - the website
+- `psg-prod-eastus.azureedge.net` - CDN hostname
+- `az818661.vo.msecnd.net` - CDN hostname
+- `devopsgallerystorage.blob.core.windows.net` - storage account hostname
+- `*.powershellgallery.com` - website
+- `go.microsoft.com` - redirection service
 
 These hostnames should be added to the allow lists that control access from your network.
+
+[!INCLUDE [TLS 1.2 Requirement](../../includes/tls-gallery.md)]
 
 [Find-DscResource]: /powershell/module/powershellget/Find-DscResource
 [Find-Module]: /powershell/module/powershellget/Find-Module

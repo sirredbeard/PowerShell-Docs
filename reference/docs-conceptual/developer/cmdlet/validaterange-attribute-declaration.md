@@ -1,17 +1,8 @@
 ---
-title: "ValidateRange Attribute Declaration | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords:
-  - "ValidateRange, described"
-  - "ValidateRange attribute"
-  - "attributes, ValidateRange"
-ms.assetid: 1f8066e6-e5d3-4f4e-8948-a90af5dace82
-caps.latest.revision: 11
+ms.date: 09/13/2016
+ms.topic: reference
+title: ValidateRange Attribute Declaration
+description: ValidateRange Attribute Declaration
 ---
 # ValidateRange Attribute Declaration
 

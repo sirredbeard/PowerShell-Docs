@@ -1,16 +1,8 @@
 ---
-title: "Writing a Custom Windows PowerShell Snap-in | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords:
-  - "snap-ins [PowerShell SDK], custom PSSnapin example"
-  - "cmdlets [PowerShell SDK], specified in snap-ins"
-ms.assetid: 55c8b5cb-8ee2-4080-afc4-3f09c9f20128
-caps.latest.revision: 6
+ms.date: 09/13/2016
+ms.topic: reference
+title: Writing a Custom Windows PowerShell Snap-in
+description: Writing a Custom Windows PowerShell Snap-in
 ---
 # Writing a Custom Windows PowerShell Snap-in
 

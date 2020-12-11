@@ -1,13 +1,8 @@
 ---
-title: "Registering Cmdlets | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 6215a651-100c-49bb-863f-edc6984dd634
-caps.latest.revision: 7
+ms.date: 09/13/2016
+ms.topic: reference
+title: Registering Cmdlets
+description: Registering Cmdlets
 ---
 # Registering Cmdlets
 

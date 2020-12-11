@@ -2,6 +2,7 @@
 ms.date: 02/03/2020
 keywords:  powershell,core
 title:  Breaking Changes for PowerShell 6.0
+description: This article summarizes the differences between Windows PowerShell 5.1 and PowerShell 6.0.
 ---
 
 # Breaking Changes for PowerShell 6.x
@@ -143,7 +144,7 @@ better solution is found.
 ### `*-EventLog` cmdlets
 
 Due to the use of unsupported APIs, the `*-EventLog` has been removed from PowerShell Core. until a
-better solution is found. `Get-WinEvent` and `Create-WinEvent` are available to get and create
+better solution is found. `Get-WinEvent` and `New-WinEvent` are available to get and create
 events on Windows.
 
 ### Cmdlets that use WPF removed

@@ -1,6 +1,8 @@
 ---
-title: Supporting Updatable Help
 ms.date: 10/28/2012
+ms.topic: reference
+title: Supporting Updatable Help
+description: Supporting Updatable Help
 ---
 # Supporting Updatable Help
 
@@ -30,4 +32,4 @@ This section includes the following topics.
 
 [Supporting Online Help](./supporting-online-help.md)
 
-[Updatable Help Status Table](https://www.microsoft.com/en-us/itpro/windows)
+[Updatable Help Status Table](/windows/deployment/deploy-whats-new)

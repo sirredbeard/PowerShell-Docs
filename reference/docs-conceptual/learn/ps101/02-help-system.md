@@ -64,7 +64,7 @@ cmdlet. The following command is used to display the help topic for `Get-Help`.
 Get-Help -Name Get-Help
 ```
 
-```Outpout
+```Output
 Do you want to run Update-Help?
 The Update-Help cmdlet downloads the most current Help files for Windows PowerShell
 modules, and installs them on your computer. For more information about the Update-Help
@@ -124,7 +124,7 @@ Each of the following parameters are in different parameter sets:
 - ShowWindow
 
 All of the cryptic syntax such as square and angle brackets in the syntax section means something
-but will be covered in Appendix A of this book. While important, learning what the cryptic syntax is
+but will be covered in Appendix A of this book. While important, learning the cryptic syntax is
 often difficult to retain for someone who is new to PowerShell and may not use it everyday.
 
 For more information to better understand the cryptic syntax, see [Appendix A][].
@@ -155,7 +155,7 @@ Notice that using the **Full** parameter returned several additional sections, o
 PARAMETERS section that provides more information than the cryptic SYNTAX section.
 
 The **Full** parameter is a switch parameter. A parameter that doesn't require a value is called a
-switch parameter. When a switch parameter is specified, it's value is true and when it's not, it's
+switch parameter. When a switch parameter is specified, its value is true and when it's not, its
 value is false.
 
 If you've been working through this chapter in the PowerShell console, you noticed that the previous
@@ -591,10 +591,8 @@ Update-Help
 
 ```Output
 Update-Help : Failed to update Help for the module(s) 'BitsTransfer' with UI culture(s)
-{en-US} : The value of the HelpInfoUri key in the module manifest must resolve to a
-container or root URL on a website where the help files are stored. The HelpInfoUri
-'https://technet.microsoft.com/en-us/library/dd819413.aspx' does not resolve to a
-container.
+{en-US} : Unable to retrieve the HelpInfo XML file for UI culture en-US. Make sure the HelpInfoUri
+property in the module manifest is valid or check your network connection and then try the command again.
 At line:1 char:1
 + Update-Help
 +

@@ -1,7 +1,8 @@
 ---
+description:  Describes how to use splatting to pass parameters to commands in PowerShell. 
 keywords: powershell,cmdlet
 Locale: en-US
-ms.date: 04/08/2020
+ms.date: 08/11/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_splatting?view=powershell-7.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about_Splatting
@@ -46,6 +47,9 @@ When splatting, you do not need to use a hash table or an array to pass all
 parameters. You may pass some parameters by using splatting and pass others by
 position or by parameter name. Also, you can splat multiple objects in a single
 command so you don't pass more than one value for each parameter.
+
+As of PowerShell 7.1, you can override a splatted parameter by explicitly
+defining a parameter in a command.
 
 ## Splatting with hash tables
 
@@ -120,18 +124,21 @@ parameter values to a script block that is executed by the cmdlet. The
 script block. PowerShell is effectively using array splatting to bind the
 values to the parameters of the script block. When using **ArgumentList**, if
 you need to pass an array as a single object bound to a single parameter, you
-must wrap the array in an array subexpression.
+must wrap the array as the only element of another array.
 
 The following example has a script block that takes a single parameter that is
 an array of strings.
 
 ```powershell
 $array = 'Hello', 'World!'
-Invoke-Command -ScriptBlock { param([string[]]$words) $words -join ' '} -ArgumentList $array
+Invoke-Command -ScriptBlock {
+  param([string[]]$words) $words -join ' '
+  } -ArgumentList $array
 ```
-
-In this example, only the first item in `$array` is passed to the script script
-block.
+<!--
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+-->
+In this example, only the first item in `$array` is passed to the script block.
 
 ```Output
 Hello
@@ -139,10 +146,12 @@ Hello
 
 ```powershell
 $array = 'Hello', 'World!'
-Invoke-Command -ScriptBlock { param([string[]]$words) $words -join ' '} -ArgumentList (,$array)
+Invoke-Command -ScriptBlock {
+  param([string[]]$words) $words -join ' '
+} -ArgumentList (,$array)
 ```
 
-In this example, `$array` is wrapped in an array subexpress so that the entire
+In this example, `$array` is wrapped in an array so that the entire
 array is passed to the script block as a single object.
 
 ```Output
@@ -150,6 +159,8 @@ Hello World!
 ```
 
 ## Examples
+
+### Example 1: Reuse splatted parameters in different commands
 
 This example shows how to reuse splatted values in different commands. The
 commands in this example use the `Write-Host` cmdlet to write messages to the
@@ -178,6 +189,8 @@ Write-Host "This is a test." @Colors
 #hash table does not matter.
 Write-Host @Colors "This is another test."
 ```
+
+### Example 2: Forward parameters using $PSBoundParameters
 
 This example shows how to forward their parameters to other commands by using
 splatting and the `$PSBoundParameters` automatic variable.
@@ -222,6 +235,46 @@ Test2 -a 1 -b 2 -c 3
 3
 2
 3
+```
+
+### Example 3: Override splatted parameters with explicitly defined parameters
+
+This example shows how to override a splatted parameter using explicitly
+defined parameters. This is useful when you don't want to build a new hashtable
+or change a value in the hashtable you are using to splat.
+
+The `$commonParams` variable stores the parameters to create virtual machines
+in the `East US` location. The `$allVms` variable is a list of virtual machines
+to create. We loop through the list and use `$commonParams` to splat the
+parameters to create each virtual machine. However, we want `myVM2` to be
+created in a different region than the other virtual machines. Instead of
+adjusting the `$commonParams` hashtable, you can explicitly define the
+**Location** parameter in `New-AzVm` to supersede the value of the `Location`
+key in `$commonParams`.
+
+```powershell
+$commonParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Location = "East US"
+    VirtualNetworkName = "myVnet"
+    SubnetName = "mySubnet"
+    SecurityGroupName = "myNetworkSecurityGroup"
+    PublicIpAddressName = "myPublicIpAddress"
+}
+
+$allVms = @('myVM1','myVM2','myVM3',)
+
+foreach ($vm in $allVms)
+{
+    if ($vm -eq 'myVM2')
+    {
+        New-AzVm @commonParams -Name $vm -Location "West US"
+    }
+    else
+    {
+        New-AzVm @commonParams -Name $vm
+    }
+}
 ```
 
 ## Splatting command parameters
@@ -336,4 +389,3 @@ information, see Gael Colas' article [Pseudo-Splatting DSC Resources](https://ga
 [about_Hash_Tables](about_Hash_Tables.md)
 
 [about_Parameters](about_Parameters.md)
-

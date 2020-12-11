@@ -1,6 +1,7 @@
 ---
 title: PowerShell 7 module compatibility
 ms.date: 02/03/2020
+description: This article lists the status of PowerShell 7 with Powershell modules published for other Microsoft products.
 ---
 
 # PowerShell 7 module compatibility
@@ -78,7 +79,7 @@ administrator**.
 | AppBackgroundTask                  | Natively Compatible                  | Windows 10 1903+                   |
 | AppLocker                          | Untested with Compatibility Layer    |                                    |
 | AppvClient                         | Untested with Compatibility Layer    |                                    |
-| Appx                               | Natively Compatible                  | Windows Server 1809+<br>Windows 10 1809+ |
+| Appx                               | Natively Compatible**                | Windows Server 1809+<br>Windows 10 1809+<br>**Must use Compatibility Layer with PowerShell 7.1 |
 | AssignedAccess                     | Natively Compatible                  | Windows 10 1809+                   |
 | BestPractices                      | Not Supported by Compatibility Layer |                                    |
 | BitLocker                          | Natively Compatible                  | Windows Server 1809+ with BitLocker<br>Windows 10 1809+ |

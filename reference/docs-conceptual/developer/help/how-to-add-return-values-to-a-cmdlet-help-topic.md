@@ -1,6 +1,8 @@
 ---
-title: How to Add Return Values to a Cmdlet Help Topic
 ms.date: 09/12/2016
+ms.topic: reference
+title: How to Add Return Values to a Cmdlet Help Topic
+description: How to Add Return Values to a Cmdlet Help Topic
 ---
 # How to Add Return Values to a Cmdlet Help Topic
 
@@ -50,7 +52,7 @@ type.
   <command:returnValue>
     <dev:type>
       <maml:name> System.DateTime </maml:name>
-      <maml:uri>  https://msdn.microsoft.com/library/system.datetime.aspx </maml:uri>
+      <maml:uri>  https://docs.microsoft.com/dotnet/api/system.datetime </maml:uri>
       <maml:description/>
     </dev:type>
     <maml:description>

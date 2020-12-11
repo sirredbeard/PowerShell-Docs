@@ -312,6 +312,9 @@ I also recommend using the same case for your parameter names as the default cmd
 `ComputerName`, not `computername`. This makes your functions look and feel like the default
 cmdlets. People who are already familiar with PowerShell will feel right at home.
 
+The `param` statement allows you to define one or more parameters. The parameter definitions are
+separated by a comma (`,`). For more information, see [about_Functions_Advanced_Parameters][].
+
 ## Advanced Functions
 
 Turning a function in PowerShell into an advanced function is really simple. One of the differences
@@ -879,5 +882,5 @@ input, error handling, and comment based help.
 [about_Functions_Advanced]: /powershell/module/microsoft.powershell.core/about/about_functions_advanced
 [about_Try_Catch_Finally]: /powershell/module/microsoft.powershell.core/about/about_try_catch_finally
 [about_Comment_Based_Help]: /powershell/module/microsoft.powershell.core/about/about_comment_based_help
-[Video: PowerShell Toolmaking with Advanced Functions and Script Modules]: https://mikefrobbins.com/2016/05/26/video-powershell-toolmaking-with-advanced-functions-and-script-modules/)
+[Video: PowerShell Toolmaking with Advanced Functions and Script Modules]: https://mikefrobbins.com/2016/05/26/video-powershell-toolmaking-with-advanced-functions-and-script-modules/
 [Pascal case]: /dotnet/standard/design-guidelines/capitalization-conventions

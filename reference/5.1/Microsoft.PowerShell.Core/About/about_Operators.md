@@ -1,7 +1,8 @@
 ---
+description: Describes the operators that are supported by PowerShell.
 keywords: powershell,cmdlet
 Locale: en-US
-ms.date: 07/21/2020
+ms.date: 11/09/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about_Operators
@@ -28,7 +29,11 @@ returns the specified number of copies of each element. You can use arithmetic
 operators on any .NET type that implements them, such as: `Int`, `String`,
 `DateTime`, `Hashtable`, and Arrays.
 
-For more information, see [about_Arithmetic_Operators](about_Arithmetic_Operators.md).
+Bitwise operators (`-band`, `-bor`, `-bxor`, `-bnot`, `-shl`, `-shr`)
+manipulate the bit patterns in values.
+
+For more information, see
+[about_Arithmetic_Operators](about_Arithmetic_Operators.md).
 
 ### Assignment Operators
 
@@ -36,7 +41,8 @@ Use assignment operators (`=`, `+=`, `-=`, `*=`, `/=`, `%=`) to assign, change,
 or append values to variables. You can combine arithmetic operators with
 assignment to assign the result of the arithmetic operation to a variable.
 
-For more information, see [about_Assignment_Operators](about_Assignment_Operators.md).
+For more information, see
+[about_Assignment_Operators](about_Assignment_Operators.md).
 
 ### Comparison Operators
 
@@ -54,10 +60,8 @@ reference set (`-in`, `-notin`, `-contains`, `-notcontains`).
 Type comparison operators (`-is`, `-isnot`) determine whether an object is of a
 given type.
 
-Bitwise comparison operators (`-bAND`, `-bOR`, `-bXOR`, `-bNOT`) manipulate the
-bit patterns in values.
-
-For more information, see [about_Comparison_Operators](about_Comparison_Operators.md).
+For more information, see
+[about_Comparison_Operators](about_Comparison_Operators.md).
 
 ### Logical Operators
 
@@ -113,7 +117,8 @@ expressions. For example: `(1 + 2) / 3`
 
 However, in PowerShell, there are additional behaviors.
 
-- `(...)` allows you to let output from a _command_ participate in an expression. For example:
+- `(...)` allows you to let output from a _command_ participate in an
+  expression. For example:
 
   ```powershell
   PS> (Get-Item *.txt).Count -gt 10
@@ -156,6 +161,11 @@ item, the array has only one member.
 ```powershell
 @(Get-CimInstance win32_logicalDisk)
 ```
+
+#### Hash table literal syntax `@{}`
+
+Similar to the array subexpression, this syntax is used to declare a hash table.
+For more information, see [about_Hash_Tables](about_Hash_Tables.md).
 
 #### Call operator `&`
 
@@ -248,38 +258,47 @@ converted, PowerShell generates an error.
 [Int] '1' + 0
 ```
 
-A cast can also be performed when a variable is assigned to using [cast notation](about_Variables.md).
+A cast can also be performed when a variable is assigned to using
+[cast notation](about_Variables.md).
 
 #### Comma operator `,`
 
-As a binary operator, the comma creates an array. As a unary operator, the
-comma creates an array with one member. Place the comma before the member.
+As a binary operator, the comma creates an array or appends to the array being
+created. In expression mode, as a unary operator, the comma creates an array
+with just one member. Place the comma before the member.
 
 ```powershell
 $myArray = 1,2,3
 $SingleArray = ,1
+Write-Output (,1)
 ```
+
+Since `Write-Object` expects an argument, you must put the expression in
+parentheses.
 
 #### Dot sourcing operator `.`
 
 Runs a script in the current scope so that any functions, aliases, and
-variables that the script creates are added to the current scope.
+variables that the script creates are added to the current scope, overriding
+existing ones. Parameters declared by the script become variables. Parameters
+for which no value has been given become variables with no value. However, the
+automatic variable `$args` is preserved.
 
 ```powershell
-. c:\scripts\sample.ps1
+. c:\scripts\sample.ps1 1 2 -Also:3
 ```
 
 > [!NOTE]
 > The dot sourcing operator is followed by a space. Use the space to
 > distinguish the dot from the dot (`.`) symbol that represents the current
 > directory.
-
-In the following example, the Sample.ps1 script in the current directory is run
-in the current scope.
-
-```powershell
-. .\sample.ps1
-```
+>
+> In the following example, the Sample.ps1 script in the current directory is
+> run in the current scope.
+>
+> ```powershell
+> . .\sample.ps1
+> ```
 
 #### Format operator `-f`
 
@@ -293,6 +312,17 @@ right side of the operator.
 
 ```output
 1 hello      3.14
+```
+
+If you need to keep the curly braces (`{}`) in the formatted string, you can
+escape them by doubling the curly braces.
+
+```powershell
+"{0} vs. {{0}}" -f 'foo'
+```
+
+```Output
+foo vs. {0}
 ```
 
 For more information, see the [String.Format](/dotnet/api/system.string.format)
@@ -367,21 +397,24 @@ You can also create ranges in reverse order.
 
 #### Member access operator `.`
 
-Accesses the properties and methods of an object.
+Accesses the properties and methods of an object. The member name may be an
+expression.
 
 ```powershell
 $myProcess.peakWorkingSet
 (Get-Process PowerShell).kill()
+'OS', 'Platform' | Foreach-Object { $PSVersionTable. $_ }
 ```
 
 #### Static member operator `::`
 
 Calls the static properties and methods of a .NET Framework class. To
 find the static properties and methods of an object, use the Static parameter
-of the `Get-Member` cmdlet.
+of the `Get-Member` cmdlet.  The member name may be an expression.
 
 ```powershell
 [datetime]::Now
+'MinValue', 'MaxValue' | Foreach-Object { [int]:: $_ }
 ```
 
 ## See also

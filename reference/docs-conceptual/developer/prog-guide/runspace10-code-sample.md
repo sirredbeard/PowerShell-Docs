@@ -1,13 +1,8 @@
 ---
-title: "RunSpace10 Code Sample | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 5337dc40-c56e-458b-aedc-5f5d401dfd28
-caps.latest.revision: 6
+ms.date: 09/13/2016
+ms.topic: reference
+title: RunSpace10 Code Sample
+description: RunSpace10 Code Sample
 ---
 # RunSpace10 Code Sample
 

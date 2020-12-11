@@ -1,7 +1,8 @@
 ---
+description: Describes how to access Windows environment variables in PowerShell. 
 keywords: powershell,cmdlet
 Locale: en-US
-ms.date: 04/13/2020
+ms.date: 09/22/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about_Environment_Variables
@@ -32,7 +33,7 @@ inherited by child processes, such as local background jobs and the sessions in
 which module members run. This makes environment variables well suited to
 storing values that are needed in both parent and child processes.
 
-## Changing environment variables
+## Using and changing environment variables
 
 On Windows, environment variables can be defined in three scopes:
 
@@ -44,6 +45,25 @@ The _Process_ scope contains the environment variables available in the current
 process, or PowerShell session. This list of variables is inherited from the
 parent process and is constructed from the variables in the _Machine_ and
 _User_ scopes. Unix-based platforms only have the _Process_ scope.
+
+You can display and change the values of environment variables without using a
+cmdlet by using a variable syntax with the environment provider. To display the
+value of an environment variable, use the following syntax:
+
+```
+$Env:<variable-name>
+```
+
+For example, to display the value of the `WINDIR` environment variable, type
+the following command at the PowerShell command prompt:
+
+```powershell
+$Env:windir
+```
+
+In this syntax, the dollar sign (`$`) indicates a variable, and the drive name
+(`Env:`) indicates an environment variable followed by the variable name
+(`windir`).
 
 When you change environment variables in PowerShell, the change affects only
 the current session. This behavior resembles the behavior of the `Set` command
@@ -125,14 +145,14 @@ The environment variables that store preferences include:
   - Non-Windows default: `~/.cache/powershell`
 
   The default filename for the cache is `ModuleAnalysisCache`. When you have
-  multiple instances of PowerShell installed, the filename will include a
+  multiple instances of PowerShell installed, the filename includes a
   hexadecimal suffix so that there is a a unique filename per installation.
 
   > [!NOTE]
   > If command discovery isn't working correctly, for example Intellisense
   > shows commands that don't exist, you can delete the cache file. The cache
   > is recreated the next time you start PowerShell.
-  
+
   To change the default location of the cache, set the environment variable
   before starting PowerShell. Changes to this environment variable only affect
   child processes. The value should name a full path (including filename)
@@ -287,32 +307,6 @@ drive, type:
 ```powershell
 PS Env:\> Get-ChildItem ComputerName
 ```
-
-### Using variable syntax
-
-You can also display and change the values of environment variables without
-using a cmdlet by using the expression parser in PowerShell. To display the
-value of an environment variable, use the following syntax:
-
-```
-$Env:<variable-name>
-```
-
-For example, to display the value of the `WINDIR` environment variable, type
-the following command at the PowerShell command prompt:
-
-```powershell
-$Env:windir
-```
-
-In this syntax, the dollar sign (`$`) indicates a variable, and the drive name
-indicates an environment variable.
-
-> [!NOTE]
-> In Windows, environment variable names are case-insensitive. On Linux and
-> macOS, environment variable names are case-sensitive. In most cases,
-> environment variables are all uppercase. Refer to the documentation for your
-> operating system for specific information.
 
 ### Saving changes to environment variables
 

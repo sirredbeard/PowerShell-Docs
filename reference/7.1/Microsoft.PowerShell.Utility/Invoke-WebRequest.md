@@ -3,7 +3,7 @@ external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Invoke-WebRequest
@@ -95,8 +95,8 @@ variables. See the [Notes](#notes) section of this article.
 This example uses the `Invoke-WebRequest` cmdlet to send a web request to the Bing.com site.
 
 ```powershell
-$response = Invoke-WebRequest -URI https://www.bing.com/search?q=how+many+feet+in+a+mile
-$response.InputFields | Where-Object {
+$Response = Invoke-WebRequest -URI https://www.bing.com/search?q=how+many+feet+in+a+mile
+$Response.InputFields | Where-Object {
     $_.name -like "* Value*"
 } | Select-Object Name, Value
 ```
@@ -108,7 +108,7 @@ From Value 1
 To Value   5280
 ```
 
-The first command issues the request and saves the response in the `$response` variable.
+The first command issues the request and saves the response in the `$Response` variable.
 
 The second command gets any **InputField** where the **Name** property is like `"* Value"`. The
 filtered results are piped to `Select-Object` to select the **Name** and **Value** properties.
@@ -165,7 +165,7 @@ documentation page.
 $Response = Invoke-WebRequest -Uri "https://aka.ms/pscore6-docs"
 $Stream = [System.IO.StreamWriter]::new('.\docspage.html', $false, $Response.Encoding)
 try {
-    $Stream.Write($response.Content)
+    $Stream.Write($Response.Content)
 }
 finally {
     $Stream.Dispose()
@@ -248,7 +248,7 @@ enclose execution in a `try/catch` block.
 ```powershell
 try
 {
-    $response = Invoke-WebRequest -Uri "www.microsoft.com/unkownhost" -ErrorAction Stop
+    $Response = Invoke-WebRequest -Uri "www.microsoft.com/unkownhost" -ErrorAction Stop
     # This will only execute if the Invoke-WebRequest is successful.
     $StatusCode = $Response.StatusCode
 }
@@ -961,9 +961,11 @@ protocol using flag notation or combining multiple **WebSslProtocol** options wi
 supplying multiple protocols is not supported on all platforms.
 
 > [!NOTE]
-> On non-Windows platforms it may not be possible to supply `'Tls, Tls12'` as an option.
+> On non-Windows platforms it may not be possible to supply `Tls` or `Tls12` as an option. Support
+> for `Tls13` is not available on all operating systems and will need to be verified on a per
+> operating system basis.
 
-This feature was added in PowerShell 6.0.0.
+This feature was added in PowerShell 6.0.0 and support for `Tls13` was added in PowerShell 7.1.
 
 ```yaml
 Type: Microsoft.PowerShell.Commands.WebSslProtocol

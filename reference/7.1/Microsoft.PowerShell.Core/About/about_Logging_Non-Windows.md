@@ -1,4 +1,5 @@
 ---
+description:  PowerShell logs internal operations from the engine, providers, and cmdlets.
 keywords: powershell
 Locale: en-US
 ms.date: 03/30/2020
@@ -10,7 +11,6 @@ title: about_Logging_Non-Windows
 # About Logging Non-Windows
 
 ## Short description
-
 PowerShell logs internal operations from the engine, providers, and cmdlets.
 
 ## Long description
@@ -278,4 +278,3 @@ For macOS **os_log** information, see
 
 <!-- link references -->
 [SIEM]: https://wikipedia.org/wiki/Security_information_and_event_management
-

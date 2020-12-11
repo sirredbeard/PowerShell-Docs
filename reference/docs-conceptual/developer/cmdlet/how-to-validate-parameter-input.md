@@ -1,13 +1,8 @@
 ---
-title: "How to Validate Parameter Input | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: f6c700c8-0889-49a1-a990-8c6e9aaf4735
-caps.latest.revision: 6
+ms.date: 09/13/2016
+ms.topic: reference
+title: How to Validate Parameter Input
+description: How to Validate Parameter Input
 ---
 # How to Validate Parameter Input
 

@@ -2,6 +2,7 @@
 ms.date:  06/05/2017
 keywords:  powershell,cmdlet
 title:  Using Tab Expansion
+description: Explains how to use the Tab Expansion feature in PowerShell.
 ---
 # Using Tab Expansion
 
@@ -25,6 +26,10 @@ the name for a partial match. For example, if you type `get-co` and then press t
 key, PowerShell will automatically expand this to the `Get-Command` cmdlet (notice that it also
 changes the case of letters to their standard form). If you press <kbd>Tab</kbd> key again,
 PowerShell replaces this with the only other matching cmdlet name, `Get-Content`.
+
+> [!NOTE]
+> As of PowerShell 7.0, <kbd>Tab</kbd> will also expand abbreviated cmdlets and functions. For
+> example, `i-psdf<tab>` returns `Import-PowerShellDataFile`.
 
 You can use tab expansion repeatedly on the same line. For example, you can use tab expansion on the
 name of the `Get-Content` cmdlet by entering:

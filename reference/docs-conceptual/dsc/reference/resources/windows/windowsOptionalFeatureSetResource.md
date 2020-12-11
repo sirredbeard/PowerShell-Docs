@@ -1,7 +1,8 @@
 ---
 ms.date: 07/16/2020
-keywords: dsc,powershell,configuration,setup
+ms.topic: reference
 title: DSC WindowsOptionalFeatureSet Resource
+description: DSC WindowsOptionalFeatureSet Resource
 ---
 # DSC WindowsOptionalFeatureSet Resource
 
@@ -13,6 +14,8 @@ a [composite resource](../../../resources/authoringResourceComposite.md) that ca
 for each feature specified in the **Name** property.
 
 Use this resource when you want to configure a number of Windows optional features to the same state.
+
+[!INCLUDE [Updated DSC Resources](../../../../../includes/dsc-resources.md)]
 
 ## Syntax
 

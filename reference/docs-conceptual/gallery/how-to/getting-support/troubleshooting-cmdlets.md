@@ -1,8 +1,7 @@
 ---
-ms.date:  06/12/2017
-contributor:  manikb
-keywords:  gallery,powershell,cmdlet,psget
+ms.date: 12/01/2020
 title:  Troubleshooting cmdlets
+description: This article provide information and steps for troubleshooting errors using the PowerShell Gallery
 ---
 # Troubleshooting cmdlets
 
@@ -20,14 +19,20 @@ Launch new PowerShell Console
 Update-Module Azure -Verbose
 ```
 
-### Required network endpoints
+## Required network endpoints
 
 The Install and Update cmdlets require internet access to connect to the network endpoints used by
 by the PowerShell Gallery. Ensure that your network access policies allow you to connect to the
 following endpoints.
 
-- oneget.org
-- go.microsoft.com
-- az818661.vo.msecnd.net
-- www.powershellgallery.com
-- devopsgallerystorage.blob.core.windows.net
+- `psg-prod-eastus.azureedge.net` - CDN hostname
+- `az818661.vo.msecnd.net` - CDN hostname
+- `devopsgallerystorage.blob.core.windows.net` - storage account hostname
+- `*.powershellgallery.com` - website
+- `go.microsoft.com` - redirection service
+
+> [!NOTE]
+> Cmdlets that interact with the PowerShell Gallery can fail with unexpected errors when there is an
+> outage of the PowerShell Gallery services. To see the current status of the PowerShell Gallery,
+> see the [PowerShell Gallery Status](https://github.com/PowerShell/PowerShellGallery/blob/master/psgallery_status.md)
+> page on GitHub.

@@ -1,20 +1,15 @@
 ---
-title: "GetProc03 (C#) Sample Code | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: ebc0d538-69ac-43d5-837d-b6f47344fc6a
-caps.latest.revision: 5
+ms.date: 09/13/2016
+ms.topic: reference
+title: GetProc03 (C#) Sample Code
+description: GetProc03 (C#) Sample Code
 ---
 # GetProc03 (C#) Sample Code
 
 The following code shows the implementation of a `Get-Process` cmdlet that can accept pipelined
 input. This implementation defines a `Name` parameter that accepts pipeline input, retrieves process
 information from the local computer based on the supplied names, and then uses the
-[WriteObject(System.Object,System.Boolean)](/dotnet/api/system.management.automation.cmdlet.writeobject?view=pscore-6.2.0#System_Management_Automation_Cmdlet_WriteObject_System_Object_System_Boolean_)
+[WriteObject(System.Object,System.Boolean)](/dotnet/api/system.management.automation.cmdlet.writeobject#System_Management_Automation_Cmdlet_WriteObject_System_Object_System_Boolean_)
 method as the output mechanism for sending objects to the pipeline.
 
 > [!NOTE]

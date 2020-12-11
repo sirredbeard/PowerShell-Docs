@@ -3,7 +3,7 @@ external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 06/18/2020
+ms.date: 08/10/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/compare-object?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Compare-Object
@@ -27,7 +27,7 @@ The `Compare-Object` cmdlet compares two sets of objects. One set of objects is 
 and the other set of objects is the **difference**.
 
 `Compare-Object` checks for available methods of comparing a whole object. If it can't find a
-suitable method, it call the **ToString()** methods of the input objects and compares the string
+suitable method, it calls the **ToString()** methods of the input objects and compares the string
 results. You can provide one or more properties to be used for comparison. When properties are
 provided, the cmdlet compares the values of those properties only.
 
@@ -366,6 +366,14 @@ Accept wildcard characters: False
 
 Specifies an array of properties of the **reference** and **difference** objects to compare.
 
+The value of the **Property** parameter can be a new calculated property. The calculated property
+can be a script block or a hash table. Valid key-value pairs are:
+
+- Expression - `<string>` or `<script block>`
+
+For more information, see
+[about_Calculated_Properties](../Microsoft.PowerShell.Core/About/about_Calculated_Properties.md).
+
 ```yaml
 Type: System.Object[]
 Parameter Sets: (All)
@@ -450,6 +458,8 @@ When using the **PassThru** parameter, the output displayed in the console may n
 [Example 3](#ex3) in this article.
 
 ## Related links
+
+[about_Calculated_Properties](../Microsoft.PowerShell.Core/About/about_Calculated_Properties.md)
 
 [ForEach-Object](../Microsoft.PowerShell.Core/ForEach-Object.md)
 

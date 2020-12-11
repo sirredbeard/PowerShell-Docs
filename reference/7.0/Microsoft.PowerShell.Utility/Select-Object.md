@@ -3,7 +3,7 @@ external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 4/26/2019
+ms.date: 09/25/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/select-object?view=powershell-7&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Select-Object
@@ -81,11 +81,11 @@ It uses the `Select-Object` cmdlet to output an array of `[System.Diagnostics.Pr
 instances as contained in the **Modules** property of each `System.Diagnostics.Process` instance
 output by `Get-Process`.
 
-The **Property** parameter of the `Select-Object` cmdlet selects the process names. This add a
+The **Property** parameter of the `Select-Object` cmdlet selects the process names. This adds a
 `ProcessName` **NoteProperty** to every `[System.Diagnostics.ProcessModule]` instance and populates
-it with the value of current processes **ProcessName** property.
+it with the value of current process's **ProcessName** property.
 
-Finally, `Format-List` cmdlet is used to display the name and modules in of each process in a list.
+Finally, `Format-List` cmdlet is used to display the name and modules of each process in a list.
 
 ```powershell
 Get-Process Explorer | Select-Object -Property ProcessName -ExpandProperty Modules | Format-List
@@ -150,7 +150,7 @@ c
 
 ### Example 5: Select newest and oldest events in the event log
 
-These example gets the first (newest) and last (oldest) events in the Windows PowerShell event log.
+This example gets the first (newest) and last (oldest) events in the Windows PowerShell event log.
 
 `Get-EventLog` gets all events in the Windows PowerShell log and saves them in the `$a` variable.
 Then, `$a` is piped to the `Select-Object` cmdlet. The `Select-Object` command uses the **Index**
@@ -189,7 +189,9 @@ cmdlet after it gets the first five read-only text files. Without this parameter
 five read-only files would be renamed.
 
 ```powershell
-Get-ChildItem *.txt -ReadOnly | Rename-Item -NewName {$_.BaseName + "-ro.txt"} -PassThru | Select-Object -First 5 -Wait
+Get-ChildItem *.txt -ReadOnly |
+    Rename-Item -NewName {$_.BaseName + "-ro.txt"} -PassThru |
+    Select-Object -First 5 -Wait
 ```
 
 ### Example 8: Demonstrate the intricacies of the -ExpandProperty parameter
@@ -450,8 +452,11 @@ property, use a hash table.
 
 Valid keys are:
 
-- Name (or Label): `<string>`
-- Expression `<string>` or `<script block>`
+- Name (or Label) - `<string>`
+- Expression - `<string>` or `<script block>`
+
+For more information, see
+[about_Calculated_Properties](../Microsoft.PowerShell.Core/About/about_Calculated_Properties.md).
 
 ```yaml
 Type: System.Object[]
@@ -563,7 +568,8 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose,
--WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](../Microsoft.PowerShell.Core/About/about_CommonParameters.md).
+-WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](../Microsoft.PowerShell.Core/About/about_CommonParameters.md).
 
 ## INPUTS
 
@@ -579,13 +585,16 @@ You can pipe any object to `Select-Object`.
 
 - You can also refer to the `Select-Object` cmdlet by its built-in alias, `select`. For more
   information, see [about_Aliases](../Microsoft.PowerShell.Core/About/about_Aliases.md).
+
 - The optimization feature of `Select-Object` is available only for commands that write objects to
   the pipeline as they are processed. It has no effect on commands that buffer processed objects and
   write them as a collection. Writing objects immediately is a cmdlet design best practice. For more
-  information, see *Write Single Records to the Pipeline* in
+  information, see _Write Single Records to the Pipeline_ in
   [Strongly Encouraged Development Guidelines](/powershell/scripting/developer/windows-powershell).
 
 ## RELATED LINKS
+
+[about_Calculated_Properties](../Microsoft.PowerShell.Core/About/about_Calculated_Properties.md)
 
 [Group-Object](Group-Object.md)
 

@@ -12,12 +12,13 @@ using the correct character encoding format.
 
 VS Code manages the interface between a human entering strings of characters into a buffer and
 reading/writing blocks of bytes to the filesystem. When VS Code saves a file, it uses a text
-encoding to decide what bytes each character becomes.
+encoding to decide what bytes each character becomes. For more information, see
+[about_Character_Encoding](/powershell/module/microsoft.powershell.core/about/about_character_encoding).
 
 Similarly, when PowerShell runs a script it must convert the bytes in a file to characters to
 reconstruct the file into a PowerShell program. Since VS Code writes the file and PowerShell reads
 the file, they need to use the same encoding system. This process of parsing a PowerShell script
-goes: *bytes* -> *characters* -> *tokens* -> *abstract syntax tree* -> *execution*.
+goes: _bytes_ -> _characters_ -> _tokens_ -> _abstract syntax tree_ -> _execution_.
 
 Both VS Code and PowerShell are installed with a sensible default encoding configuration. However,
 the default encoding used by PowerShell has changed with the release of PowerShell Core (v6.x). To
@@ -88,10 +89,10 @@ The PowerShell extension interacts with scripts in a number of ways:
 1. When scripts are edited in VS Code, the contents are sent by VS Code to the extension. The
    [Language Server Protocol][] mandates that this content is transferred in UTF-8. Therefore, it is
    not possible for the extension to get the wrong encoding.
-2. When scripts are executed directly in the Integrated Console, they're read from the file by
+1. When scripts are executed directly in the Integrated Console, they're read from the file by
    PowerShell directly. If PowerShell's encoding differs from VS Code's, something can go wrong
    here.
-3. When a script that is open in VS Code references another script that is not open in VS Code, the
+1. When a script that is open in VS Code references another script that is not open in VS Code, the
    extension falls back to loading that script's content from the file system. The PowerShell
    extension defaults to UTF-8 encoding, but uses [byte-order mark][], or BOM, detection to select
    the correct encoding.
@@ -130,8 +131,9 @@ leading to artifacts in text manipulated with those applications.
 - If you work mainly in Linux-associated contexts, you should prefer UTF-8 without BOM.
 - Windows-1252 and latin-1 are essentially legacy encodings that you should avoid if possible.
   However, some older Windows applications may depend on them.
-- It's also worth noting that script signing is [encoding-dependent](https://github.com/PowerShell/PowerShell/issues/3466),
-  meaning a change of encoding on a signed script will require resigning.
+- It's also worth noting that script signing is
+  [encoding-dependent](https://github.com/PowerShell/PowerShell/issues/3466), meaning a change of
+  encoding on a signed script will require resigning.
 
 ## Configuring VS Code
 
@@ -170,6 +172,10 @@ field. For example:
     "files.autoGuessEncoding": true
 }
 ```
+
+You may also want to consider installing the [Gremlins tracker][] for Visual Studio Code. This
+extension reveals certain Unicode characters that easily corrupted because they are invisible or
+look like other normal characters.
 
 ## Configuring PowerShell
 
@@ -228,13 +234,14 @@ See the following articles:
 - [@mklement0]'s [answer about PowerShell encoding on StackOverflow](https://stackoverflow.com/a/40098904).
 - [@rkeithhill]'s [blog post about dealing with BOM-less UTF-8 input in PowerShell](https://rkeithhill.wordpress.com/2010/05/26/handling-native-exe-output-encoding-in-utf8-with-no-bom/).
 
-It's not possible to force PowerShell to use a specific input encoding. PowerShell 5.1 and below
-default to Windows-1252 encoding when there's no BOM. For interoperability reasons, it's best to
+It's not possible to force PowerShell to use a specific input encoding. PowerShell 5.1 and below,
+running on Windows with the locale set to en-US, defaults to Windows-1252 encoding when there's no
+BOM. Other locale settings may use a different encoding. To ensure interoperability, it's best to
 save scripts in a Unicode format with a BOM.
 
 > [!IMPORTANT]
-> Any other tools you have that touch PowerShell scripts may be affected by your
-> encoding choices or re-encode your scripts to another encoding.
+> Any other tools you have that touch PowerShell scripts may be affected by your encoding choices or
+> re-encode your scripts to another encoding.
 
 ### Existing scripts
 
@@ -310,6 +317,7 @@ encoding to prevent problems.
 There are a few other nice posts on encoding and configuring encoding in PowerShell that are worth a
 read:
 
+- [about_Character_Encoding](/powershell/module/microsoft.powershell.core/about/about_character_encoding)
 - [@mklement0]'s [summary of PowerShell encoding on StackOverflow](https://stackoverflow.com/questions/40098771/changing-powershells-default-output-encoding-to-utf-8)
 - Previous issues opened on VS Code-PowerShell for encoding problems:
   - [#1308](https://github.com/PowerShell/VSCode-powershell/issues/1308)
@@ -317,7 +325,7 @@ read:
   - [#1680](https://github.com/PowerShell/VSCode-powershell/issues/1680)
   - [#1744](https://github.com/PowerShell/VSCode-powershell/issues/1744)
   - [#1751](https://github.com/PowerShell/VSCode-powershell/issues/1751)
-- [The classic *Joel on Software* write up about Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
+- [The classic _Joel on Software_ write up about Unicode](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/)
 - [Encoding in .NET Standard](https://github.com/dotnet/standard/issues/260#issuecomment-289549508)
 
 [@mklement0]: https://github.com/mklement0
@@ -329,3 +337,4 @@ read:
 [UTF-16]: https://wikipedia.org/wiki/UTF-16
 [Language Server Protocol]: https://microsoft.github.io/language-server-protocol/
 [VS Code's encoding]: https://code.visualstudio.com/docs/editor/codebasics#_file-encoding-support
+[Gremlins tracker]: https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins

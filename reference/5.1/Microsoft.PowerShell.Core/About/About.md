@@ -1,4 +1,5 @@
 ---
+description:  About topics cover a ranges of concepts about PowerShell. 
 Download Help Link: https://Please-enter-FwLink-manually
 Help Version: 6.0
 keywords: powershell,cmdlet
@@ -379,6 +380,3 @@ Provides background information about Windows Management Instrumentation (WMI) a
 
 ### [about_WQL](about_WQL.md)
 Describes WMI Query Language (WQL), which can be used to get WMI objects in PowerShell.
-
-### [about_WS-Management_Cmdlets](about_WS-Management_Cmdlets.md)
-Provides an overview of Web Services for Management (WS-Management) as background for using the WS-Management cmdlets in PowerShell.

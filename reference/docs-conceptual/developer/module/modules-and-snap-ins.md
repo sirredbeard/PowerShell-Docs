@@ -1,13 +1,8 @@
 ---
-title: "Modules and Snap-ins | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 2d342f91-23e0-467f-8de2-f9657d820693
-caps.latest.revision: 6
+ms.date: 09/13/2016
+ms.topic: reference
+title: Modules and Snap-ins
+description: Modules and Snap-ins
 ---
 # Modules and Snap-ins
 

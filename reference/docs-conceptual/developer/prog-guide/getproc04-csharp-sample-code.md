@@ -1,13 +1,8 @@
 ---
-title: "GetProc04 (C#) Sample Code | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 439ba3f3-91b1-46a4-8d07-9af6edb71bc4
-caps.latest.revision: 5
+ms.date: 09/13/2016
+ms.topic: reference
+title: GetProc04 (C#) Sample Code
+description: GetProc04 (C#) Sample Code
 ---
 # GetProc04 (C#) Sample Code
 

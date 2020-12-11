@@ -1,13 +1,8 @@
 ---
-title: "Windows PowerShell02 Sample | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 92492a7e-257d-47d3-b119-89df3c5545e8
-caps.latest.revision: 9
+ms.date: 09/13/2016
+ms.topic: reference
+title: Windows PowerShell02 Sample
+description: Windows PowerShell02 Sample
 ---
 # Windows PowerShell02 Sample
 

@@ -1,7 +1,7 @@
 ---
 title: PowerShell Core Support Lifecycle
-description: Policies governing support for PowerShell Core
-ms.date: 03/09/2020
+description: Details the policies governing support for PowerShell
+ms.date: 11/11/2020
 ---
 # PowerShell Support Lifecycle
 
@@ -10,28 +10,29 @@ separately from Windows PowerShell. PowerShell isn't included in the Windows
 licensing agreements.
 
 PowerShell is supported under traditional Microsoft support agreements, including [paid support][],
-[Microsoft Enterprise Agreements][enterprise-agreement], and [Microsoft Software Assurance][assurance].
-You can also pay for [assisted support][] for PowerShell by filing a support request for your
-problem.
+[Microsoft Enterprise Agreements][enterprise-agreement], and
+[Microsoft Software Assurance][assurance]. You can also pay for [assisted support][] for PowerShell
+by filing a support request for your problem.
 
 ## Community Support
 
 We also offer [community support][] on GitHub where you can file an issue, bug, or feature request.
-Also, you may find help from other members of the community in the Microsoft [PowerShell Tech Community][]
-or any of the forums listed in the community section of [PowerShell][pshub] hub page. We offer no
-guarantee there that the community will address or resolve your issue in a timely manner. If you
-have a problem that requires immediate attention, you should use the traditional, paid support
-options.
+Also, you may find help from other members of the community in the Microsoft
+[PowerShell Tech Community][] or any of the forums listed in the community section of
+[PowerShell][pshub] hub page. We offer no guarantee there that the community will address or resolve
+your issue in a timely manner. If you have a problem that requires immediate attention, you should
+use the traditional, paid support options.
 
 ## Lifecycle of PowerShell 7
 
-With the release of PowerShell 7, PowerShell continues to be supported under the [Microsoft Modern Lifecycle Policy][modern],
-but support dates are linked to [.NET Core's support lifecycle][Long-Term]. In this servicing
-approach, customers can choose Long Term Support (LTS) releases or Current releases. PowerShell 7.0
-is an LTS release. Support ends with the support of .NET Core 3.1. The next LTS release follows the
-next .NET Core LTS release. See the [PowerShell releases end of life table](#powershell-releases-end-of-life)
-for current ending support dates. LTS release updates only contain critical security and servicing
-updates and fixes that are designed to avoid or minimize impact to existing workloads.
+With the release of PowerShell 7, PowerShell continues to be supported under the
+[Microsoft Modern Lifecycle Policy][modern], but support dates are linked to
+[.NET Core's support lifecycle][Long-Term]. In this servicing approach, customers can choose Long
+Term Support (LTS) releases or Current releases. PowerShell 7.0 is an LTS release. Support ends with
+the support of .NET Core 3.1. The next LTS release follows the next .NET Core LTS release. See the
+[PowerShell releases end of life table](#powershell-releases-end-of-life) for current ending support
+dates. LTS release updates only contain critical security and servicing updates and fixes that are
+designed to avoid or minimize impact to existing workloads.
 
 A Current release is a release that occurs between LTS releases. Current releases can contain
 critical fixes, innovations, and new features. A Current release is supported for three months after
@@ -41,34 +42,6 @@ the next Current or LTS release.
 > You must have the latest patch update installed to qualify for support. For example, if you're
 > running PowerShell 7.0 and 7.0.1 has been released, you must update to 7.0.1 to qualify for
 > support.
-
-## Lifecycle of PowerShell Core 6.x
-
-PowerShell Core used the [Microsoft Modern Lifecycle Policy][modern]. This support lifecycle
-is intended to keep customers up-to-date with the latest versions.
-
-The version 6.x branch of PowerShell Core was updated approximately once every six months (examples:
-6.0, 6.1, 6.2, etc.). However, with the release of PowerShell 7, there won't be anymore minor
-version releases of 6.x. PowerShell 6.2.x will continue to receive servicing updates while still
-supported.
-
-> [!IMPORTANT]
-> You must update within six months after each new minor version release to continue receiving
-> support.
-
-For example, if PowerShell Core 6.1 is released on July 1, 2018, you would be expected to update to
-PowerShell Core 6.1 by January 1, 2019 to maintain support.
-
-> [!IMPORTANT]
-> You must update within 30 days after each new patch version release to continue receiving support.
-
-For example, If you're running PowerShell Core 6.1 and 6.1.3 was released on February 19, 2019, you
-would be expected to update to PowerShell Core 6.1.3 by March 21, 2019, which is 30 days after the
-release to maintain support. If any fixes are found to be required, the fixes will be released in
-our next cumulative update.
-
-The Modern Lifecycle Policy also requires that Microsoft give customers 12 months notice before
-discontinuing support for a product (that is, PowerShell Core).
 
 ## Supported platforms
 
@@ -81,47 +54,53 @@ supported. These packages are marked as `Community` in the table.
 Platforms listed as `Experimental` aren't officially supported, but are available for
 experimentation and feedback.
 
-| Platform                                          |      6.2      |    7.0    |
-| ------------------------------------------------- | :-----------: | :-------: |
-| Windows 8.1, and 10                               |   Supported   | Supported |
-| Windows Server 2012 R2, 2016                      |   Supported   | Supported |
-| [Windows Server Semi-Annual Channel][semi-annual] |   Supported   | Supported |
-| Ubuntu 16.04 and 18.04                            |   Supported   | Supported |
-| Ubuntu 19.10 (via Snap Package)                   |   Community   | Community |
-| Ubuntu 20.04 (via Snap Package)                   |   Community   | Community |
-| Debian 9                                          |   Supported   | Supported |
-| Debian 10                                         | Not Supported | Supported |
-| CentOS 7                                          |   Supported   | Supported |
-| CentOS 8                                          | Not Supported | Supported |
-| Red Hat Enterprise Linux 7                        |   Supported   | Supported |
-| Red Hat Enterprise Linux 8                        | Not Supported | Supported |
-| Fedora 30                                         | Not Supported | Supported |
-| Alpine 3.8                                        |   See Note    | See Note  |
-| Alpine 3.9 and 3.10                               | Not Supported | See Note  |
-| macOS 10.12+                                      |   Supported   | Supported |
-| Arch                                              |   Community   | Community |
-| Raspbian                                          |   Community   | Community |
-| Kali                                              |   Community   | Community |
-| AppImage (works on multiple Linux platforms)      |   Community   | Community |
-| [Snap Package](https://snapcraft.io/powershell)   |   See note    | See note  |
+<!-- TODO: update OS list -->
+
+|                     Platform                      |      7.0      |      7.1      |
+| ------------------------------------------------- | :-----------: | :-----------: |
+| Windows 8.1, and 10                               |   Supported   |   Supported   |
+| Windows Server 2012 R2, 2016, 2019                |   Supported   |   Supported   |
+| [Windows Server Semi-Annual Channel][semi-annual] |   Supported   |   Supported   |
+| Ubuntu 16.04, 18.04                               |   Supported   |   Supported   |
+| Ubuntu 20.04                                      | Not Supported |   Supported   |
+| Ubuntu 19.10, 20.10 (via Snap Package)            |   Community   |   Supported   |
+| Debian 9                                          |   Supported   |   Supported   |
+| Debian 10                                         |   Supported   |   Supported   |
+| CentOS 7                                          |   Supported   |   Supported   |
+| CentOS 8                                          |   Supported   |   Supported   |
+| Red Hat Enterprise Linux 7                        |   Supported   |   Supported   |
+| Red Hat Enterprise Linux 8                        |   Supported   |   Supported   |
+| Fedora 31+                                        |   Supported   | Not Supported |
+| Alpine 3.10                                       |   See Note 1  | Not Supported |
+| Alpine 3.11+                                      |   See Note 1  |   See Note 1  |
+| macOS 10.13+                                      |   Supported   |   Supported   |
+| Arch                                              |   Community   |   Community   |
+| Raspbian                                          |   Community   |   Community   |
+| Kali                                              |   Community   |   Community   |
+| AppImage (works on multiple Linux platforms)      |   Community   |   Community   |
+| [Snap Package](https://snapcraft.io/powershell)   |   See note 2  |   See note    |
 
 > [!NOTE]
-> Snap packages are supported the same as the distribution you're running the package on.
-
-> [!NOTE]
-> CIM, PowerShell Remoting, and DSC are not supported on Alpine.
+> - 1 - CIM, PowerShell Remoting, and DSC are not supported on Alpine.
+> - 2 - Snap packages are supported the same as the distribution you're running the package on.
 
 ## PowerShell releases end of life
 
 Based on the [Lifecycle of PowerShell](#lifecycle-of-powershell-7), the following table lists
 the dates when various releases will no longer be supported.
 
-| Version |    End-of-life     |
-| :-----: | ------------------ |
-|   7.0   | December 3, 2022   |
-|   6.2   | September 4, 2020  |
-|   6.1   | September 28, 2019 |
-|   6.0   | February 13, 2019  |
+| Version |          End-of-life           |
+| :-----: | ------------------------------ |
+|   7.1   | mid-February 2022  (projected) |
+|   7.0   | December 3, 2022               |
+|   6.2   | September 4, 2020              |
+|   6.1   | September 28, 2019             |
+|   6.0   | February 13, 2019              |
+
+> [!NOTE]
+> This document is about support for PowerShell Core. Windows PowerShell (1.0 - 5.1) is a component
+> of the Windows OS. Components receive the same support as their parent product or platform. For
+> more information, see [Product and Services Lifecycle Information](/lifecycle/products/).
 
 ## Unsupported platforms
 
@@ -130,6 +109,8 @@ also cease to support that platform version. Previously released packages will r
 customers needing access but formal support and updates of any kind will no longer be provided.
 
 So, the distribution owners ended support for the following versions and aren't supported.
+
+<!-- TODO: Update this table Jason-->
 
 |    Platform    | Version |                                                         End of Life                                                          |
 | -------------- | :-----: | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -157,15 +138,17 @@ makes no guarantees of responsiveness or fixes.
 
 ## Windows PowerShell Compatibility
 
-The support lifecycle for PowerShell doesn't cover modules that ship outside of the PowerShell 7 release package. For
-example, using the `ActiveDirectory` module that ships as part of Windows Server is supported under
-the [Windows Support Lifecycle][].
+The support lifecycle for PowerShell doesn't cover modules that ship outside of the PowerShell 7
+release package. For example, using the `ActiveDirectory` module that ships as part of Windows
+Server is supported under the [Windows Support Lifecycle][].
 
 PowerShell 7 improves compatibility with existing PowerShell modules written for Windows PowerShell.
-For more information, see the [about_Windows_Compatibility][] article and the [module compatibility list][].
+For more information, see the [about_Windows_Compatibility][] article and the
+[module compatibility list][].
 
 > [!NOTE]
-> The [**WindowsPSModulePath**](https://www.powershellgallery.com/packages/WindowsPSModulePath) module is no longer necessary in PowerShell 7 and is not supported.
+> The [**WindowsPSModulePath**](https://www.powershellgallery.com/packages/WindowsPSModulePath)
+> module is no longer necessary in PowerShell 7 and is not supported.
 
 ## Experimental features
 
@@ -187,16 +170,17 @@ The table below outlines the features that meet the servicing criteria and those
 The following table contains a timeline of the major releases of PowerShell. This table is provided
 for historical reference. It is not intended for use to determine the support lifecycle.
 
-|       Version        | Release Date |                                                                     Note                                                                      |
-| -------------------- | :----------: | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| PowerShell 7.0 (LTS) |   Mar-2020   | Built on .NET Core 3.1 (LTS)                                                                                                                  |
-| PowerShell 6.0       |   Jan-2018   | First release, built on .NET Core 2.1. Installable on Windows, Linux, and macOS.                                                              |
-| PowerShell 5.1       |   Aug-2016   | Released in Windows 10 Anniversary Update and Windows Server 2016                                                                             |
-| PowerShell 5.0       |   Feb-2016   | Released in Windows Management Framework (WMF) 5.0                                                                                            |
-| PowerShell 4.0       |   Oct-2013   | Integrated in Windows 8.1 and with Windows Server 2012 R2. Installable on Windows 7 SP1, Windows Server 2008 R2 SP1, and Windows Server 2012. |
-| PowerShell 3.0       |   Oct-2012   | Integrated in Windows 8 and with Windows Server 2012. Installable on Windows 7 SP1, Windows Server 2008 SP1, and Windows Server 2008 R2 SP1.  |
-| PowerShell 2.0       |   Jul-2009   | Integrated in Windows 7 and Windows Server 2008 R2. Installable on Windows XP SP3, Windows Server 2003 SP2, and Windows Vista SP1.            |
-| PowerShell 1.0       |   Nov-2006   | Installable on Windows XP SP2, Windows Server 2003 SP1 and Windows Vista. Optional component of Windows Server 2008.                          |
+|         Version          | Release Date |                                                                     Note                                                                      |
+| ------------------------ | :----------: | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| PowerShell 7.1 (current) |   Nov-2020   | Built on .NET Core 5.0 (current)                                                                                                              |
+| PowerShell 7.0 (LTS)     |   Mar-2020   | Built on .NET Core 3.1 (LTS)                                                                                                                  |
+| PowerShell 6.0           |   Jan-2018   | First release, built on .NET Core 2.1. Installable on Windows, Linux, and macOS.                                                              |
+| PowerShell 5.1           |   Aug-2016   | Released in Windows 10 Anniversary Update and Windows Server 2016                                                                             |
+| PowerShell 5.0           |   Feb-2016   | Released in Windows Management Framework (WMF) 5.0                                                                                            |
+| PowerShell 4.0           |   Oct-2013   | Integrated in Windows 8.1 and with Windows Server 2012 R2. Installable on Windows 7 SP1, Windows Server 2008 R2 SP1, and Windows Server 2012. |
+| PowerShell 3.0           |   Oct-2012   | Integrated in Windows 8 and with Windows Server 2012. Installable on Windows 7 SP1, Windows Server 2008 SP1, and Windows Server 2008 R2 SP1.  |
+| PowerShell 2.0           |   Jul-2009   | Integrated in Windows 7 and Windows Server 2008 R2. Installable on Windows XP SP3, Windows Server 2003 SP2, and Windows Vista SP1.            |
+| PowerShell 1.0           |   Nov-2006   | Installable on Windows XP SP2, Windows Server 2003 SP1 and Windows Vista. Optional component of Windows Server 2008.                          |
 
 <!-- hyperlink references -->
 [paid support]: https://support.microsoft.com/hub/4343728/support-for-business
@@ -216,4 +200,4 @@ for historical reference. It is not intended for use to determine the support li
 [module compatibility list]: /powershell/scripting/whats-new/module-compatibility
 [WindowsPSModulePath]: https://www.powershellgallery.com/packages/WindowsPSModulePath/
 [Experimental features]: /powershell/module/microsoft.powershell.core/about/about_powershell_config#experimentalfeatures
-[Microsoft Security Servicing Criteria for Windows]: https://www.microsoft.com/en-us/msrc/windows-security-servicing-criteria
+[Microsoft Security Servicing Criteria for Windows]: https://www.microsoft.com/msrc/windows-security-servicing-criteria

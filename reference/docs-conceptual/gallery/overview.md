@@ -1,16 +1,15 @@
 ---
-ms.date:  06/12/2017
-contributor:  JKeithB
-keywords:  gallery,powershell,cmdlet,psgallery,psget
+ms.date: 12/01/2020
 title:  The PowerShell Gallery
+description: The PowerShell Gallery is the central repository for PowerShell modules, scripts, and DSC resources.
 ---
 # The PowerShell Gallery
 
 The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful
 PowerShell modules containing PowerShell commands and Desired State Configuration (DSC) resources.
 You can also find PowerShell scripts, some of which may contain PowerShell workflows, and which
-outline a set of tasks and provide sequencing for those tasks. Some of these packages are authored by
-Microsoft, and others are authored by the PowerShell community.
+outline a set of tasks and provide sequencing for those tasks. Some of these packages are authored
+by Microsoft, and others are authored by the PowerShell community.
 
 ## PowerShellGet Overview
 
@@ -32,8 +31,8 @@ install local help for these commands.
 
 The **PowerShellGet** module requires **PowerShell 3.0 or newer**.
 
-**PowerShellGet** requires .NET Framework 4.5 or above. You can install .NET Framework 4.5 or
-above from [here](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+**PowerShellGet** requires .NET Framework 4.5 or above. For more information, see
+[Install the .NET Framework for developers](/dotnet/framework/install/guide-for-developers).
 
 Since **PowerShell Core** is cross-platform and that means it works on Windows, Linux and MacOS,
 that also makes **PowerShellGet** available on those systems. For a full list of systems supported
@@ -46,5 +45,11 @@ Please refer to the documentation for the modules for more information.
 ## Got a question? Have feedback?
 
 More information about the PowerShell Gallery and PowerShellGet can be found in the
-[Getting Started](getting-started.md) page. Please provide feedback and report issues using
-[UserVoice](http://windowsserver.uservoice.com/forums/301869-powershell).
+[Getting Started](getting-started.md) page.
+
+To see the current status of the PowerShell Gallery services, see the
+[PowerShell Gallery Status](https://github.com/PowerShell/PowerShellGallery/blob/master/psgallery_status.md)
+page on GitHub.
+
+Please provide feedback and report issues the
+[GitHub repository](https://github.com/PowerShell/PowerShellGallery/issues).

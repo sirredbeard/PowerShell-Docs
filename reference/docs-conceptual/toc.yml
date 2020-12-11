@@ -55,24 +55,30 @@
     items:
     - name: Overview
       href: learn/deep-dives/overview.md
-    - name: Everything you want to know about arrays
-      href: learn/deep-dives/everything-about-arrays.md
-    - name: Everything you want to know about hashtables
-      href: learn/deep-dives/everything-about-hashtable.md
-    - name: Everything you want to know about PSCustomObject
-      href: learn/deep-dives/everything-about-pscustomobject.md
-    - name: Everything you want to know about string substitution
-      href: learn/deep-dives/everything-about-string-substitutions.md
-    - name: Everything you want to know about if/then/else
-      href: learn/deep-dives/everything-about-if.md
-    - name: Everything you want to know about switch
-      href: learn/deep-dives/everything-about-switch.md
-    - name: Everything you want to know about exceptions
-      href: learn/deep-dives/everything-about-exceptions.md
-    - name: Everything you want to know about $null
-      href: learn/deep-dives/everything-about-null.md
-    - name: Everything you want to know about ShouldProcess
-      href: learn/deep-dives/everything-about-shouldprocess.md
+    - name: Everything you want to know about ...
+      items:
+      - name: Everything you want to know about arrays
+        href: learn/deep-dives/everything-about-arrays.md
+      - name: Everything you want to know about hashtables
+        href: learn/deep-dives/everything-about-hashtable.md
+      - name: Everything you want to know about PSCustomObject
+        href: learn/deep-dives/everything-about-pscustomobject.md
+      - name: Everything you want to know about string substitution
+        href: learn/deep-dives/everything-about-string-substitutions.md
+      - name: Everything you want to know about if/then/else
+        href: learn/deep-dives/everything-about-if.md
+      - name: Everything you want to know about switch
+        href: learn/deep-dives/everything-about-switch.md
+      - name: Everything you want to know about exceptions
+        href: learn/deep-dives/everything-about-exceptions.md
+      - name: Everything you want to know about $null
+        href: learn/deep-dives/everything-about-null.md
+      - name: Everything you want to know about ShouldProcess
+        href: learn/deep-dives/everything-about-shouldprocess.md
+    - name: Write-Progress while multithreading
+      href: learn/deep-dives/write-progress-across-multiple-threads.md
+    - name: Add Credential support to PowerShell functions
+      href: learn/deep-dives/add-credentials-to-powershell-functions.md
   - name: PowerShell remoting
     items:
     - name: Just Enough Administration (JEA)
@@ -116,9 +122,11 @@
   items:
   - name: What's new in PowerShell 7.x
     items:
+    - name: What's new in PowerShell 7.1
+      href: whats-new/what-s-new-in-powershell-71.md
     - name: What's new in PowerShell 7.0
       href: whats-new/what-s-new-in-powershell-70.md
-  - name: What's new in PowerShell Core 6.x
+  - name: PowerShell Core 6.x Release Notes
     items:
     - name: What's new in PowerShell Core 6.2
       href: whats-new/what-s-new-in-powershell-core-62.md
@@ -225,7 +233,7 @@
         href: windows-powershell/wmf/whats-new/bugfixes.md
       - name: New and updated cmdlets
         href: windows-powershell/wmf/whats-new/new-updated-cmdlets.md
-      - name: Creating Custom Types using PowerShell Classes
+      - name: New language features in PowerShell 5.0
         href: windows-powershell/wmf/whats-new/class-overview.md
       - name: Console Improvements in WMF 5.1
         href: windows-powershell/wmf/whats-new/console-improvements.md
@@ -562,6 +570,10 @@
     href: community/hall-of-fame.md
   - name: What's new in Docs
     items:
+    - name: 2020-Q4
+      href: community/2020-Q4.md
+    - name: 2020-Q3
+      href: community/2020-Q3.md
     - name: 2020-Q2
       href: community/2020-Q2.md
     - name: 2020-Q1
@@ -578,8 +590,6 @@
       href: community/contributing/pull-requests.md
     - name: PowerShell-Docs style guide
       href: community/contributing/powershell-style-guide.md
-    - name: Editing cmdlet reference
-      href: community/contributing/editing-cmdlet-ref.md
     - name: Additional resources
       items:
       - name: Editorial checklist
@@ -716,8 +726,6 @@
         href: gallery/how-to/working-with-packages/packages-that-require-license-acceptance.md
       - name: Contacting Packages owners
         href: gallery/how-to/working-with-packages/contacting-package-owners.md
-      - name: Providing Feedback via Social Media or Comments
-        href: gallery/how-to/working-with-packages/social-media-feedback.md
     - name: Managing Account Profile
       items:
       - name: PowerShell Gallery Account Settings
@@ -774,12 +782,14 @@
     items:
     - name: Using Visual Studio Code
       href: dev-cross-plat/vscode/using-vscode.md
-    - name: How to replicate the ISE experience in Visual Studio Code
+    - name: How to replicate the ISE experience in VS Code
       href: dev-cross-plat/vscode/How-To-Replicate-the-ISE-Experience-In-VSCode.md
-    - name: Using Visual Studio Code for remote editing and debugging
+    - name: Using VS Code for remote editing and debugging
       href: dev-cross-plat/vscode/Using-VSCode-for-Remote-Editing-and-Debugging.md
     - name: Understanding file encoding in VS Code and PowerShell
       href: dev-cross-plat/vscode/understanding-file-encoding.md
+    - name: Using VS Code to debug compiled cmdlets
+      href: dev-cross-plat/vscode/using-vscode-for-debugging-compiled-cmdlets.md
   - name: Writing portable modules
     href: dev-cross-plat/writing-portable-modules.md
   - name: Creating module help using PlatyPS

@@ -1,5 +1,6 @@
 ---
 ms.date:  06/12/2017
+description: This document provide best practices to assist engineers that are deploying the DSC Pull Server.
 keywords:  dsc,powershell,configuration,setup
 title:  Pull server best practices
 ---
@@ -19,11 +20,9 @@ preparing for the solution. Details should provide best practices as identified 
 then validated by the product team to ensure recommendations are future facing and considered
 stable.
 
-|           |                      Doc Info                      |
-| :-------- | :------------------------------------------------- |
-| Author    | Michael Greene                                     |
-| Reviewers | Ben Gelens, Ravikanth Chaganti, Aleksandar Nikolic |
-| Published | April, 2015                                        |
+- Author: Michael Greene
+- Reviewers: Ben Gelens, Ravikanth Chaganti, Aleksandar Nikolic
+- Published: April, 2015
 
 ## Abstract
 
@@ -60,7 +59,8 @@ operating systems. For more information, see the
 [DMTF page linking to MOF specifications](https://www.dmtf.org/standards/cim), and
 [OMI Documents and Source](https://collaboration.opengroup.org/omi/documents.php).
 
-Windows PowerShell provides a set of language extensions for Desired State Configuration that you can use to create and manage declarative configurations.
+Windows PowerShell provides a set of language extensions for Desired State Configuration that you
+can use to create and manage declarative configurations.
 
 ### Pull server role
 
@@ -75,8 +75,8 @@ configuring a target node (also referred to as a client) to point to the pull se
 configuration data and any required scripts are downloaded and applied. This can happen as a
 one-time deployment or as a re-occurring job which also makes the pull server an important asset for
 managing change at scale. For more information, see
-[Windows PowerShell Desired State Configuration Pull Servers](pullserver.md)
-and [Push and Pull Configuration Modes](pullserver.md).
+[Windows PowerShell Desired State Configuration Pull Servers](pullserver.md) and
+[Push and Pull Configuration Modes](pullserver.md).
 
 ## Configuration planning
 
@@ -102,15 +102,14 @@ DSC module to automate pull server provisioning.
 Windows Server 2012 R2 includes a feature named the DSC Service. The DSC Service feature provides
 the pull server functionality, including the binaries that support the OData endpoint. WMF is
 included in Windows Server and is updated on an agile cadence between Windows Server releases.
-[New versions of WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=54616) can
-include updates to the DSC Service feature. For this reason, it is a best practice to download the
-latest release of WMF and to review the release notes to determine if the release includes an update
-to the DSC service feature. You should also review the section of the release notes that indicates
-whether the design status for an update or scenario is listed as stable or experimental. To allow
-for an agile release cycle, individual features can be declared stable, which indicates the feature
-is ready to be used in a production environment even while WMF is released in preview. Other
-features that have historically been updated by WMF releases (see the WMF Release Notes for further
-detail):
+[New versions of WMF 5.0](https://www.microsoft.com/download/details.aspx?id=54616) can include
+updates to the DSC Service feature. For this reason, it is a best practice to download the latest
+release of WMF and to review the release notes to determine if the release includes an update to the
+DSC service feature. You should also review the section of the release notes that indicates whether
+the design status for an update or scenario is listed as stable or experimental. To allow for an
+agile release cycle, individual features can be declared stable, which indicates the feature is
+ready to be used in a production environment even while WMF is released in preview. Other features
+that have historically been updated by WMF releases (see the WMF Release Notes for further detail):
 
 - Windows PowerShell Windows PowerShell Integrated Scripting
 - Environment (ISE) Windows PowerShell Web Services (Management OData
@@ -124,7 +123,7 @@ script. This document includes configuration scripts that can be used to deploy 
 server node. To use the configuration scripts, a DSC module is required that is not included in
 Windows Server. The required module name is **xPSDesiredStateConfiguration**, which includes the DSC
 resource **xDscWebService**. The xPSDesiredStateConfiguration module can be downloaded
-[here](https://gallery.technet.microsoft.com/xPSDesiredStateConfiguratio-417dc71d).
+[here](https://github.com/dsccommunity/xPSDesiredStateConfiguration).
 
 Use the `Install-Module` cmdlet from the **PowerShellGet** module.
 
@@ -185,8 +184,9 @@ can help to isolate the client configuration so that changes to the server envir
 replacing a pull server or adding additional pull servers, will not require a corresponding change
 to the client configuration.
 
-When choosing a name for the DNS record, keep the solution architecture in mind.
-If using load balancing, the certificate used to secure traffic over HTTPS will need to share the same name as the DNS record.
+When choosing a name for the DNS record, keep the solution architecture in mind. If using load
+balancing, the certificate used to secure traffic over HTTPS will need to share the same name as the
+DNS record.
 
 |       Scenario        |                                                                                         Best Practice
 |:--------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -297,12 +297,15 @@ New-DscChecksum -ConfigurationPath .\ -OutPath .\
 Planning task
 
 - If you are planning a test or lab environment which scenarios are key to validate?
-- Are there publicly available modules that contain resources to cover everything you need or will you need to author your own resources?
+- Are there publicly available modules that contain resources to cover everything you need or will
+  you need to author your own resources?
 - Will your environment have Internet access to retrieve public modules?
 - Who will be responsible for reviewing DSC modules?
-- If you are planning a production environment what will you use as a local repository for storing DSC modules?
+- If you are planning a production environment what will you use as a local repository for storing
+  DSC modules?
 - Will a central team accept DSC modules from application teams? What will the process be?
-- Will you automate packaging, copying, and creating a checksum for production-ready DSC modules to the server, from your source repo?
+- Will you automate packaging, copying, and creating a checksum for production-ready DSC modules to
+  the server, from your source repo?
 - Will your team be responsible for managing the automation platform as well?
 
 #### DSC configurations
@@ -331,9 +334,10 @@ another tool or software solution. There are two general approaches:
   servers share the same GUID, all of them would be updated simultaneously when the configuration
   changes.
 
-  The GUID is something that should be considered sensitive data because it could be leveraged by someone with malicious intent to gain intelligence about how servers are deployed and
-  configured in your environment. For more information, see
-  [Securely allocating Guids in PowerShell Desired State Configuration Pull Mode](https://blogs.msdn.microsoft.com/powershell/2014/12/31/securely-allocating-guids-in-powershell-desired-state-configuration-pull-mode/).
+  The GUID is something that should be considered sensitive data because it could be leveraged by
+  someone with malicious intent to gain intelligence about how servers are deployed and configured
+  in your environment. For more information, see
+  [Securely allocating Guids in PowerShell Desired State Configuration Pull Mode](https://devblogs.microsoft.com/powershell/securely-allocating-guids-in-powershell-desired-state-configuration-pull-mode/).
 
 Planning task
 
@@ -375,7 +379,8 @@ The best method to deploy a DSC pull server is to use a DSC configuration script
 present scripts including both basic settings that would configure only the DSC web service and
 advanced settings that would configure a Windows Server end-to-end including DSC web service.
 
-Note:  Currently the `xPSDesiredStateConfiguration` DSC module requires the server to be EN-US locale.
+Note: Currently the `xPSDesiredStateConfiguration` DSC module requires the server to be EN-US
+locale.
 
 ### Basic configuration for Windows Server 2012
 
@@ -670,12 +675,10 @@ checksum files to the SMB pull server.
 A data file is stored to create information during deployment of a pull server that includes the
 OData web service. The type of file depends on the operating system, as described below.
 
-- **Windows Server 2012**
-  The file type will always be   .mdb
-- **Windows Server 2012 R2**
-  The file type will default to .edb unless a .mdb is specified in the configuration
+- **Windows Server 2012** - The file type will always be `.mdb`
+- **Windows Server 2012 R2** - The file type will default to `.edb` unless a `.mdb` is specified in
+  the configuration
 
-In the
-[Advanced example script](https://github.com/mgreenegit/Whitepapers/blob/Dev/PullServerCPIG.md#installation-and-configuration-scripts)
+In the [Advanced example script](https://github.com/mgreenegit/Whitepapers/blob/Dev/PullServerCPIG.md#installation-and-configuration-scripts)
 for installing a Pull Server, you will also find an example of how to automatically control the
 web.config file settings to prevent any chance of error caused by file type.

@@ -1,7 +1,7 @@
 ---
 ms.date:  08/09/2017
-keywords:  powershell,cmdlet,download,install,setup,windows 10, windows 8.1, windows 8.0,windows 7
 title:  Installing Windows PowerShell
+description: This article explains how to install Windows PowerShell on various versions of Windows.
 ---
 # Installing Windows PowerShell
 
@@ -14,8 +14,8 @@ Windows PowerShell. For that, see
 
 ## Finding PowerShell in Windows 10, 8.1, 8.0, and 7
 
-Sometimes locating PowerShell console or ISE (Integrated Scripting Environment) in Windows can be
-difficult, as its location moves from one version of Windows to the next.
+Sometimes locating PowerShell console or the Integrated Scripting Environment (ISE) in Windows can
+be difficult, as its location moves from one version of Windows to the next.
 
 The following tables should help you find PowerShell in your Windows version. All versions listed
 here are the original version, as released, with no updates.
@@ -74,9 +74,9 @@ locate the installer for the version of PowerShell you want to update to.
 |                    Windows                     |                                  PS 3.0                                   |                                  PS 4.0                                   |                                  PS 5.0                                   |                                  PS 5.1                                   |
 | ---------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | Windows 10 (see Note1)<br/>Windows Server 2016 | -                                                                         | -                                                                         | -                                                                         | installed                                                                 |
-| Windows 8.1<br/>Windows Server 2012 R2         | -                                                                         | installed                                                                 | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616) |
-| Windows 8<br/>Windows Server 2012              | installed                                                                 | [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616) |
-| Windows 7 SP1<br/>Windows Server 2008 R2 SP1   | [WMF 3.0](https://www.microsoft.com/en-us/download/details.aspx?id=34595) | [WMF 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616) |
+| Windows 8.1<br/>Windows Server 2012 R2         | -                                                                         | installed                                                                 | [WMF 5.0](https://www.microsoft.com/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616) |
+| Windows 8<br/>Windows Server 2012              | installed                                                                 | [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616) |
+| Windows 7 SP1<br/>Windows Server 2008 R2 SP1   | [WMF 3.0](https://www.microsoft.com/download/details.aspx?id=34595) | [WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855) | [WMF 5.0](https://www.microsoft.com/download/details.aspx?id=50395) | [WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616) |
 
 > [!NOTE]
 > On the initial release of Windows 10, with automatic updates enabled, PowerShell gets updated from

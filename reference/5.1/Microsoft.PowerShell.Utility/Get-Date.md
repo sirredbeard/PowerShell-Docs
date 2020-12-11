@@ -3,7 +3,7 @@ external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 6/27/2019
+ms.date: 08/25/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-date?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Get-Date
@@ -481,6 +481,12 @@ For example, `Get-Date | Get-Member`.
 
 The valid **UFormat specifiers** are displayed in the following table:
 
+> [!IMPORTANT]
+> Additional **UFormat** specifiers are added in newer versions of PowerShell. For example, `%F` was
+> added in PowerShell 6.2, so it isn't available in Windows PowerShell 5.1 or older. Keep this in
+> mind when using **UFormat** specifiers in scripts designed to be run on multiple versions of
+> PowerShell.
+
 | Format specifier |                                 Meaning                     |         Example          |
 | ---- | ----------------------------------------------------------------------- | ------------------------ |
 | `%A` | Day of the week - full name                                             | Monday                   |
@@ -491,7 +497,7 @@ The valid **UFormat specifiers** are displayed in the following table:
 | `%c` | Date and time - abbreviated                                             | Thu Jun 27 08:44:18 2019 |
 | `%D` | Date in mm/dd/yy format                                                 | 06/27/19                 |
 | `%d` | Day of the month - 2 digits                                             | 05                       |
-| `%e` | Day of the month - digit preceded by a space                            | \<space\>5               |
+| `%e` | Day of the month - preceded by a space if only a single digit           | \<space\>5               |
 | `%G` | Same as 'Y'                                                             |                          |
 | `%g` | Same as 'y'                                                             |                          |
 | `%H` | Hour in 24-hour format                                                  | 17                       |
@@ -511,7 +517,7 @@ The valid **UFormat specifiers** are displayed in the following table:
 | `%t` | Horizontal tab character                                                |                          |
 | `%T` | Time in 24-hour format                                                  | 17:45:52                 |
 | `%U` | Same as 'W'                                                             |                          |
-| `%u` | Day of the week - number                                                | Monday = 1               |
+| `%u` | Day of the week - number                                                | Sunday = 0               |
 | `%V` | Week of the year                                                        | 01-53                    |
 | `%w` | Same as 'u'                                                             |                          |
 | `%W` | Week of the year                                                        | 00-52                    |

@@ -1,7 +1,8 @@
 ---
+description: Lists the PowerShell operators in precedence order.
 keywords: powershell,cmdlet
 Locale: en-US
-ms.date: 05/06/2020
+ms.date: 11/09/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_operator_precedence?view=powershell-5.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about_Operator_Precedence
@@ -37,7 +38,7 @@ type `get-help <topic-name>`.
 
 |         OPERATOR         |           REFERENCE            |
 | ------------------------ | ------------------------------ |
-| `$() @() ()`             | [about_Operators][]            |
+| `$() @() () @{}`         | [about_Operators][]            |
 | `.` (member access)      | [about_Operators][]            |
 | `::` (static)            | [about_Operators][]            |
 | `[0]` (index operator)   | [about_Operators][]            |
@@ -73,7 +74,7 @@ order:
 
 |                OPERATOR                 |           REFERENCE            |
 | --------------------------------------- | ------------------------------ |
-| `-band -bnot -bor -bxor`                | [about_Arithmetic_Operators][] |
+| `-band -bnot -bor -bxor -shr -shl`      | [about_Arithmetic_Operators][] |
 | `-and -or -xor`                         | [about_Logical_Operators][]    |
 
 The following items are not true operators. They are part of PowerShell's

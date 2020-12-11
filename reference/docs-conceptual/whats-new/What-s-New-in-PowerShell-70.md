@@ -40,10 +40,10 @@ Additionally, PowerShell 7.0 supports ARM32 and ARM64 flavors of Debian, Ubuntu,
 Linux.
 
 Check the installation instructions for your preferred operating system
-[Windows](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-7),
-[macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7),
+[Windows](/powershell/scripting/install/installing-powershell-core-on-windows),
+[macOS](/powershell/scripting/install/installing-powershell-core-on-macos),
 or
-[Linux](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7).
+[Linux](/powershell/scripting/install/installing-powershell-core-on-linux).
 
 While not officially supported, the community has also provided packages for
 [Arch](https://aur.archlinux.org/packages/powershell/) and Kali Linux.
@@ -51,10 +51,10 @@ While not officially supported, the community has also provided packages for
 > [!NOTE]
 > Debian 10 and CentOS 8 currently do not support WinRM remoting. For details on setting up
 > SSH-based remoting, see
-> [PowerShell Remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-7).
+> [PowerShell Remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 For more up-to-date information about supported operating systems and support lifecycle, see the
-[PowerShell Support Lifecycle](/powershell/scripting/powershell-support-lifecycle?view=powershell-7).
+[PowerShell Support Lifecycle](/powershell/scripting/powershell-support-lifecycle).
 
 ## Running PowerShell 7
 
@@ -88,7 +88,7 @@ ship as part of Windows.
 For Windows, a new switch parameter **UseWindowsPowerShell** is added to `Import-Module`. This
 switch creates a proxy module in PowerShell 7 that uses a local Windows PowerShell process to
 implicitly run any cmdlets contained in that module. For more information on
-[Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7).
+[Import-Module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7&preserve-view=true).
 
 For more information on which Microsoft modules work with PowerShell 7.0, see the
 [Module Compatibility Table](https://aka.ms/PSModuleCompat).
@@ -124,7 +124,7 @@ Use the `$_` variable to represent the current input object in the script block.
 `$using:` scope to pass variable references to the running script block.
 
 For more information about
-[ForEach-Object](/powershell/module/microsoft.powershell.core/foreach-object?view=powershell-7).
+[ForEach-Object](/powershell/module/microsoft.powershell.core/foreach-object?view=powershell-7&preserve-view=true).
 
 ## Ternary operator
 
@@ -151,7 +151,7 @@ In this example, if the path exists, then **Path exists** is displayed. If the p
 then **Path not found** is displayed.
 
 For more information
-[About If](/powershell/module/microsoft.powershell.core/about/about_if?view=powershell-7).
+[About If](/powershell/module/microsoft.powershell.core/about/about_if).
 
 ## Pipeline chain operators
 
@@ -210,7 +210,7 @@ Second
 ```
 
 For more information
-[About Pipeline Chain Operators](/powershell/module/microsoft.powershell.core/about/about_pipeline_chain_operators?view=powershell-7).
+[About Pipeline Chain Operators](/powershell/module/microsoft.powershell.core/about/about_pipeline_chain_operators?view=powershell-7&preserve-view=true).
 
 ## Null-coalescing, assignment, and conditional operators
 
@@ -261,8 +261,8 @@ $todaysDate ??= (Get-Date).ToShortDateString()
 ### Null conditional member access operators ?. and ?[] (Experimental)
 
 > [!NOTE]
-> This is an experimental feature named **PSNullConditionalOperators**. Learn more
-> [About Experimental Features](/powershell/module/microsoft.powershell.core/about/about_experimental_features?view=powershell-7).
+> This is an experimental feature named **PSNullConditionalOperators**. For more information, see
+> [Using Experimental Features](/powershell/scripting/learn/experimental-features).
 
 A null conditional operator permits member access, `?.`, or element access, `?[]`, to its operand
 only if that operand evaluates to non-null; otherwise, it returns null.
@@ -303,7 +303,7 @@ ${a}?[0]
 ```
 
 For more information
-[About_Operators](/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7).
+[About_Operators](/powershell/module/microsoft.powershell.core/about/about_operators?view=powershell-7&preserve-view=true).
 
 ## New view ConciseView and cmdlet Get-Error
 
@@ -329,7 +329,7 @@ that line. If the terminal doesn't support ANSI color escape sequences (VT100), 
 ![Error display from a script](./media/What-s-New-in-PowerShell-70/myscript-error.png)
 
 The default view in PowerShell 7 is **ConciseView**. The previous default view was **NormalView** and you can select thisby setting the preference variable `$ErrorView`.
- 
+
 ```powershell
 $ErrorView = 'NormalView' # Sets the error view to NormalView
 $ErrorView = 'ConciseView' # Sets the error view to ConciseView
@@ -359,7 +359,7 @@ from the current session you wish displayed.
 Get-Error -Newest 3 # Displays the lst three errors that occurred in the session
 ```
 
-For more information about [Get-Error](/powershell/module/microsoft.powershell.utility/get-error?view=powershell-7).
+For more information about [Get-Error](/powershell/module/microsoft.powershell.utility/get-error?view=powershell-7&preserve-view=true).
 
 ## New version notification
 
@@ -401,14 +401,15 @@ To set the version notification to the `Default` behavior:
 $Env:POWERSHELL_UPDATECHECK = 'Default'
 ```
 
-For more information [About Update Notifications](/powershell/module/microsoft.powershell.core/about/about_update_notifications?view=powershell-7).
+For more information
+[About Update Notifications](/powershell/module/microsoft.powershell.core/about/about_update_notifications).
 
 ## New DSC Resource support with Invoke-DSCResource (Experimental)
 
 > [!NOTE]
-> This is an experimental feature named **PSDesiredStateConfiguration.InvokeDscResource**. Learn
-> more
-> [About Experimental Features](/powershell/module/microsoft.powershell.core/about/about_experimental_features?view=powershell-7).
+> This is an experimental feature named **PSDesiredStateConfiguration.InvokeDscResource**. For more
+> information, see
+> [Using Experimental Features](/powershell/scripting/learn/experimental-features).
 
 The `Invoke-DscResource` cmdlet runs a method of a specified PowerShell Desired State Configuration
 (DSC) resource.
@@ -417,16 +418,18 @@ This cmdlet invokes a DSC resource directly, without creating a configuration do
 cmdlet, configuration management products can manage Windows or Linux by using DSC resources. This
 cmdlet also enables debugging of resources when the DSC engine is running with debugging enabled.
 
-This command invokes the **Set** method of a resource named Log and specifies a **Message** property.
+This command invokes the **Set** method of a resource named **WindowsProcess** and provides the
+mandatory **Path** and **Arguments** properties to start the specified Windows process.
 
 ```powershell
-Invoke-DscResource -Name Log -Method Set -ModuleName PSDesiredStateConfiguration -Property @{
-  Message = 'Hello World'
+Invoke-DscResource -Name WindowsProcess -Method Set -ModuleName PSDesiredStateConfiguration -Property @{
+  Path = 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+  Arguments = ''
 }
 ```
 
 For more information about
-[Invoke-DSCResource](/powershell/module/psdesiredstateconfiguration/invoke-dscresource?view=powershell-7).
+[Invoke-DSCResource](/powershell/module/psdesiredstateconfiguration/invoke-dscresource?view=powershell-7&preserve-view=true).
 
 ## Breaking Changes and Improvements
 

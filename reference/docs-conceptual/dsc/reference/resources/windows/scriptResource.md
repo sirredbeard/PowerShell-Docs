@@ -1,7 +1,8 @@
 ---
 ms.date: 07/16/2020
-keywords: dsc,powershell,configuration,setup
+ms.topic: reference
 title: DSC Script Resource
+description: DSC Script Resource
 ---
 # DSC Script Resource
 
@@ -11,6 +12,8 @@ The `Script` resource in Windows PowerShell Desired State Configuration (DSC) pr
 to run Windows PowerShell script blocks on target nodes. The `Script` resource uses `GetScript`
 `SetScript`, and `TestScript` properties that contain script blocks you define to perform the
 corresponding DSC state operations.
+
+[!INCLUDE [Updated DSC Resources](../../../../../includes/dsc-resources.md)]
 
 ## Syntax
 
@@ -54,20 +57,20 @@ Script [string] #ResourceName
 #### GetScript
 
 DSC does not use the output from `GetScript` The [Get-DscConfiguration](/powershell/module/PSDesiredStateConfiguration/Get-DscConfiguration)
-cmdlet executes `GetScript` to retrieve a node's current state. A return value is not required
-from `GetScript` If you specify a return value, it must be a hashtable containing a **Result**
-key whose value is a String.
+cmdlet executes `GetScript` to retrieve a node's current state. A return value is not required from
+`GetScript` If you specify a return value, it must be a hashtable containing a **Result** key whose
+value is a String.
 
 #### TestScript
 
-`TestScript` is executed by DSC to determine if `SetScript` should be run. If `TestScript`
-returns `$false`, DSC executes `SetScript` to bring the node back to the desired state. It must
-return a boolean value. A result of `$true` indicates that the node is compliant and `SetScript`
-should not executed.
+`TestScript` is executed by DSC to determine if `SetScript` should be run. If `TestScript` returns
+`$false`, DSC executes `SetScript` to bring the node back to the desired state. It must return a
+boolean value. A result of `$true` indicates that the node is compliant and `SetScript` should not
+executed.
 
 The [Test-DscConfiguration](/powershell/module/PSDesiredStateConfiguration/Test-DscConfiguration)
-cmdlet, executes `TestScript` to retrieve the nodes compliance with the `Script` resources.
-However, in this case, `SetScript` does not run, no matter what `TestScript` block returns.
+cmdlet, executes `TestScript` to retrieve the nodes compliance with the `Script` resources. However,
+in this case, `SetScript` does not run, no matter what `TestScript` block returns.
 
 > [!NOTE]
 > All output from your `TestScript` is part of its return value. PowerShell interprets
@@ -77,8 +80,8 @@ However, in this case, `SetScript` does not run, no matter what `TestScript` blo
 
 #### SetScript
 
-`SetScript` modifies the node to enforce the desired state. It is called by DSC if the
-`TestScript` script block returns `$false`. The `SetScript` should have no return value.
+`SetScript` modifies the node to enforce the desired state. It is called by DSC if the `TestScript`
+script block returns `$false`. The `SetScript` should have no return value.
 
 ## Examples
 
@@ -136,9 +139,9 @@ Configuration ScriptTest
                 # Create and invoke a scriptblock using the $GetScript automatic variable, which contains a string representation of the GetScript.
                 $state = [scriptblock]::Create($GetScript).Invoke()
 
-                if( $state['Result'] -eq $using:version )
+                if( $state.Result -eq $using:version )
                 {
-                    Write-Verbose -Message ('{0} -eq {1}' -f $state['Result'],$using:version)
+                    Write-Verbose -Message ('{0} -eq {1}' -f $state.Result,$using:version)
                     return $true
                 }
                 Write-Verbose -Message ('Version up-to-date: {0}' -f $using:version)
@@ -154,10 +157,10 @@ Configuration ScriptTest
 
 ### Example 3: Utilizing parameters in a Script resource
 
-This example accesses parameters from within the Script resource by making use of the `using`
-scope. Please note that **ConfigurationData** can be accessed in a similar way. Like example 2, a
-version is expected to be stored inside a local file on the target node. Both the local file
-path as well as the version are configurable however, decoupling code from configuration data.
+This example accesses parameters from within the Script resource by making use of the `using` scope.
+Please note that **ConfigurationData** can be accessed in a similar way. Like example 2, a version
+is expected to be stored inside a local file on the target node. Both the local file path as well as
+the version are configurable however, decoupling code from configuration data.
 
 ```powershell
 Configuration ScriptTest

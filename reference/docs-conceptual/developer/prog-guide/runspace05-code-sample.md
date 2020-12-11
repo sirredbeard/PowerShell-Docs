@@ -1,13 +1,8 @@
 ---
-title: "RunSpace05 Code Sample | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 9688cd69-07ea-4ea0-8822-0a4850bcf86c
-caps.latest.revision: 7
+ms.date: 09/13/2016
+ms.topic: reference
+title: RunSpace05 Code Sample
+description: RunSpace05 Code Sample
 ---
 # RunSpace05 Code Sample
 

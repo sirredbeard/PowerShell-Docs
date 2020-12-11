@@ -1,13 +1,8 @@
 ---
-title: "AccessDBProviderSample05 | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: a26661f2-a63c-4ca7-ad3e-dcb4d32ce5a1
-caps.latest.revision: 8
+ms.date: 09/13/2016
+ms.topic: reference
+title: AccessDBProviderSample05
+description: AccessDBProviderSample05
 ---
 # AccessDBProviderSample05
 

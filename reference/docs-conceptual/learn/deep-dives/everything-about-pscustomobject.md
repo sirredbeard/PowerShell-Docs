@@ -1,7 +1,7 @@
 ---
 title: Everything you wanted to know about PSCustomObject
 description: PSCustomObject is a simple way to create structured data.
-ms.date: 05/23/2020
+ms.date: 10/05/2020
 ms.custom: contributor-KevinMarquette
 ---
 # Everything you wanted to know about PSCustomObject
@@ -78,7 +78,7 @@ This way is quite a bit slower but it may be your best option on early versions 
 ### Saving to a file
 
 I find the best way to save a hashtable to a file is to save it as JSON. You can import it back into
-a `[PSCusomObject]`
+a `[PSCustomObject]`
 
 ```powershell
 $myObject | ConvertTo-Json -depth 1- | Set-Content -Path $Path
@@ -147,7 +147,7 @@ $myObject.$property
 
 I know that looks strange, but it works.
 
-### Convert pscustomboject into a hashtable
+### Convert PSCustomObject into a hashtable
 
 To continue on from the last section, you can dynamically walk the properties and create a hashtable
 from them.
@@ -168,11 +168,11 @@ If you need to know if a property exists, you could just check for that property
 if( $null -ne $myObject.ID )
 ```
 
-But if the value could be `$null` and you still need to check for it, you can check the
+But if the value could be `$null` you can check to see if it exists by checking the
 `psobject.properties` for it.
 
 ```powershell
-if( $myobject.psobject.properties.match('ID') )
+if( $myobject.psobject.properties.match('ID').Count )
 ```
 
 ## Adding object methods
@@ -277,6 +277,10 @@ $myObject = [PSCustomObject]@{
 I love how nicely this just fits into the language. Now that we have an object with a proper type
 name, we can do some more things.
 
+> [!NOTE]
+> You can also create custom PowerShell types using PowerShell classes. For more information, see
+> [PowerShell Class Overview](/powershell/module/Microsoft.PowerShell.Core/About/about_Classes).
+
 ## Using DefaultPropertySet (the long way)
 
 PowerShell decides for us what properties to display by default. A lot of the native commands have a
@@ -286,7 +290,7 @@ there's another way for us to do this on our custom object using just PowerShell
 
 ```powershell
 $defaultDisplaySet = 'Name','Language'
-$defaultDisplayPropertySet = New-Object System.Management.Automation.PSPropertySet(‘DefaultDisplayPropertySet’,[string[]]$defaultDisplaySet)
+$defaultDisplayPropertySet = New-Object System.Management.Automation.PSPropertySet('DefaultDisplayPropertySet',[string[]]$defaultDisplaySet)
 $PSStandardMembers = [System.Management.Automation.PSMemberInfo[]]@($defaultDisplayPropertySet)
 $MyObject | Add-Member MemberSet PSStandardMembers $PSStandardMembers
 ```

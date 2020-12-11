@@ -1,5 +1,5 @@
 ---
-ms.date: 07/23/2020
+ms.date: 11/11/2020
 title: Using Experimental Features in PowerShell
 description: Lists the currently available experimental features and how to use them.
 ---
@@ -25,18 +25,20 @@ For more information about enabling or disabling these features, see
 
 This article describes the experimental features that are available and how to use the feature.
 
-|                            Name                            |   6.2   |   7.0   | 7.1 (preview) |
-| ---------------------------------------------------------- | :-----: | :-----: | :-----------: |
-| PSTempDrive (mainstream in PS 7.0+)                        | &check; |         |               |
-| PSUseAbbreviationExpansion (mainstream in PS 7.0+)         | &check; |         |               |
-| PSCommandNotFoundSuggestion                                | &check; | &check; |    &check;    |
-| PSImplicitRemotingBatching                                 | &check; | &check; |    &check;    |
-| Microsoft.PowerShell.Utility.PSManageBreakpointsInRunspace |         | &check; |    &check;    |
-| PSDesiredStateConfiguration.InvokeDscResource              |         | &check; |    &check;    |
-| PSNullConditionalOperators                                 |         | &check; |    &check;    |
-| PSUnixFileStat (non-Windows only)                          |         | &check; |    &check;    |
-| PSNativePSPathResolution                                   |         |         |    &check;    |
-| PSCultureInvariantReplaceOperator                          |         |         |    &check;    |
+|                            Name                            |   6.2   |   7.0   |   7.1   |
+| ---------------------------------------------------------- | :-----: | :-----: | :-----: |
+| PSTempDrive (mainstream in PS 7.0+)                        | &check; |         |         |
+| PSUseAbbreviationExpansion (mainstream in PS 7.0+)         | &check; |         |         |
+| PSNullConditionalOperators (mainstream in PS 7.1+)         |         | &check; |         |
+| PSUnixFileStat (non-Windows only - mainstream in PS 7.1+)  |         | &check; |         |
+| PSCommandNotFoundSuggestion                                | &check; | &check; | &check; |
+| PSImplicitRemotingBatching                                 | &check; | &check; | &check; |
+| Microsoft.PowerShell.Utility.PSManageBreakpointsInRunspace |         | &check; | &check; |
+| PSDesiredStateConfiguration.InvokeDscResource              |         | &check; | &check; |
+| PSNativePSPathResolution                                   |         |         | &check; |
+| PSCultureInvariantReplaceOperator                          |         |         | &check; |
+| PSNotApplyErrorActionToStderr                              |         |         | &check; |
+| PSSubsystemPluginModel                                     |         |         | &check; |
 
 ## Microsoft.PowerShell.Utility.PSManageBreakpointsInRunspace
 
@@ -165,12 +167,25 @@ If a PSDrive path that uses the FileSystem provider is passed to a native comman
 path is passed to the native command. This means a command like `code temp:/test.txt` now works as
 expected.
 
-Also, on Windows, if the path starts with `~`, that is resolved to the full path and passed to the native
-command. In both cases, the path is normalized to the directory separators for the relevant
+Also, on Windows, if the path starts with `~`, that is resolved to the full path and passed to the
+native command. In both cases, the path is normalized to the directory separators for the relevant
 operating system.
 
 - If the path is not a PSDrive or `~` (on Windows), then path normalization doesn't occur
 - If the path is in single quotes, then it's not resolved and treated as literal
+
+## PSNotApplyErrorActionToStderr
+
+When this experimental feature is enabled, error records redirected from native commands, like when
+using redirection operators (`2>&1`), are not written to the `$Error` variable and the preference
+variable `$ErrorActionPreference` does not affect the redirected output.
+
+Many native commands write to `stderr` as an alternative stream for additional information. This
+behavior can cause confusion when looking through errors or the additional output information can
+be lost to the user if `$ErrorActionPreference` is set to a state that mutes the output.
+
+When a native command has a non-zero exit code, `$?` is set to `$false`. If the exit code is zero,
+`$?` is set to `$true`.
 
 ## PSNullConditionalOperators
 
@@ -198,6 +213,10 @@ variable name and the operator.
 Since PowerShell allows `?` as part of the variable name, disambiguation is required when the
 operators are used without a space between the variable name and the operator. To disambiguate, the
 variables must use `{}` around the variable name like: `${x?}?.propertyName` or `${y}?[0]`.
+
+> [!NOTE]
+> This feature has moved out of the experimental phase and is a mainstream feature in PowerShell 7.1
+> and higher.
 
 ## PSTempDrive
 
@@ -230,6 +249,10 @@ drwxr-xr-x jimtru    staff         11/8/2019 10:37         896 tools
 -rw-r--r-- jimtru    staff         11/8/2019 10:37      201297 CHANGELOG.md
 ```
 
+> [!NOTE]
+> This feature has moved out of the experimental phase and is a mainstream feature in PowerShell 7.1
+> and higher.
+
 ## PSUseAbbreviationExpansion
 
 This feature enables tab-completion of abbreviated cmdlets and functions:
@@ -245,3 +268,20 @@ script.
 > [!NOTE]
 > This feature has moved out of the experimental phase and is a mainstream feature in PowerShell 7
 > and higher.
+
+## PSSubsystemPluginModel
+
+This feature enables the subsystem plugin model in PowerShell. The feature makes it possible to
+separate components of `System.Management.Automation.dll` into individual subsystems that reside in
+their own assembly. This separation reduces the disk footprint of the core PowerShell engine and
+allows these components to become optional features for a minimal PowerShell installation.
+
+Currently, only the **CommandPredictor** subsystem is supported. This subsystem is used along with
+the PSReadLine module to provide custom prediction plugins. In future, **Job**,
+**CommandCompleter**, **Remoting** and other components could be separated into subsystem
+assemblies outside of `System.Management.Automation.dll`.
+
+The experimental feature includes a new cmdlet,
+[Get-PSSubsystem](xref:Microsoft.PowerShell.Core.Get-PSSubsystem). This cmdlet is only available
+when the feature is enabled. This cmdlet returns information about the subsystems that are available
+on the system.

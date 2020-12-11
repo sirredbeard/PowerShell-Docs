@@ -2,6 +2,7 @@
 ms.date: 07/06/2020
 keywords:  dsc,powershell,configuration,setup
 title:  Securing the MOF File
+description: This article describes how to ensure the target node has encrypted the MOF file.
 ---
 # Securing the MOF File
 
@@ -9,7 +10,7 @@ title:  Securing the MOF File
 
 DSC manages the configuration of server nodes by applying information stored in a MOF file, where
 the Local Configuration Manager (LCM) implements the desired end state. Because this file contains
-the details of the configuration, it's important to keep it secure. This topic describes how to
+the details of the configuration, it's important to keep it secure. This article describes how to
 ensure the target node has encrypted the file.
 
 Beginning with PowerShell version 5.0, the entire MOF file is encrypted by default when it is
@@ -35,20 +36,19 @@ following:
 - **Some means of issuing and distributing certificates**. This topic and its examples assume you
   are using Active Directory Certification Authority. For more background information on Active
   Directory Certificate Services, see
-  [Active Directory Certificate Services Overview](https://technet.microsoft.com/library/hh831740.aspx)
-  and
-  [Active Directory Certificate Services in Windows Server 2008](https://technet.microsoft.com/windowsserver/dd448615.aspx).
+  [Active Directory Certificate Services Overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831740(v=ws.11)).
 - **Administrative access to the target node or nodes**.
 - **Each target node has an encryption-capable certificate saved its Personal Store**. In Windows
   PowerShell, the path to the store is Cert:\LocalMachine\My. The examples in this topic use the
   "workstation authentication" template, which you can find (along with other certificate templates)
-  at [Default Certificate Templates](https://technet.microsoft.com/library/cc740061(v=WS.10).aspx).
+  at [Default Certificate Templates](/previous-versions/windows/it-pro/windows-server-2003/cc740061(v=ws.10)).
 - If you will be running this configuration on a computer other than the target node, **export the
   public key of the certificate**, and then import it to the computer you will run the configuration
   from. Make sure that you export only the **public** key; keep the private key secure.
 
 > [!NOTE]
-> Script Resources have limitations when it comes to encryption. For more information, see [Script Resource](../reference/resources/windows/scriptResource.md#known-limitations)
+> Script Resources have limitations when it comes to encryption. For more information, see
+> [Script Resource](../reference/resources/windows/scriptResource.md#known-limitations)
 
 ## Overall process
 
@@ -61,7 +61,7 @@ following:
  1. Run the configuration, which will set the Local Configuration Manager settings and start the DSC
     configuration.
 
-![Diagram1](media/secureMOF/CredentialEncryptionDiagram1.png)
+![Process flow for credential encryption](media/secureMOF/CredentialEncryptionDiagram1.png)
 
 ## Certificate Requirements
 
@@ -129,8 +129,11 @@ Once exported, the `DscPublicKey.cer` would need to be copied to the **Authoring
 > Because the `New-SelfSignedCertificate` cmdlet on Windows Operating Systems prior to Windows 10
 > and Windows Server 2016 do not support the **Type** parameter, an alternate method of creating
 > this certificate is required on these operating systems. In this case you can use `makecert.exe`
-> or `certutil.exe` to create the certificate. An alternate method is to [download the New-SelfSignedCertificateEx.ps1 script from Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6)
-> and use it to create the certificate instead:
+> or `certutil.exe` to create the certificate. This example uses the
+> [New-SelfSignedCertificateEx.ps1](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6)
+> script from Microsoft Script Center as an alternate way to create the certificate. An updated
+> version of this script is available in the
+> [PSPKI](https://www.powershellgallery.com/packages/PSPKI/) module in the PowerShell Gallery.
 
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
@@ -202,8 +205,9 @@ Once exported, the `DscPrivateKey.pfx` would need to be copied to the **Target N
 > Because the `New-SelfSignedCertificate` cmdlet on Windows Operating Systems prior to Windows 10
 > and Windows Server 2016 do not support the **Type** parameter, an alternate method of creating
 > this certificate is required on these operating systems. In this case you can use `makecert.exe`
-> or `certutil.exe` to create the certificate. An alternate method is to [download the New-SelfSignedCertificateEx.ps1 script from Microsoft Script Center](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6)
-> and use it to create the certificate instead:
+> or `certutil.exe` to create the certificate. An alternate method is to download the
+> [New-SelfSignedCertificateEx.ps1](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6)
+> script from Microsoft Script Center and use it to create the certificate instead:
 
 ```powershell
 # note: These steps need to be performed in an Administrator PowerShell session
@@ -246,7 +250,8 @@ Import-PfxCertificate -FilePath "$env:temp\DscPrivateKey.pfx" -CertStoreLocation
 
 The configuration data block defines which target nodes to operate on, whether or not to encrypt the
 credentials, the means of encryption, and other information. For more information on the
-configuration data block, see [Separating Configuration and Environment Data](../configurations/configData.md).
+configuration data block, see
+[Separating Configuration and Environment Data](../configurations/configData.md).
 
 The elements that can be configured for each node that are related to credential encryption are:
 
@@ -316,11 +321,11 @@ configuration CredentialEncryptionExample
 
 ## Setting up decryption
 
-Before [`Start-DscConfiguration`](https://technet.microsoft.com/library/dn521623.aspx) can work, you
-have to tell the Local Configuration Manager on each target node which certificate to use to decrypt
-the credentials, using the CertificateID resource to verify the certificate's thumbprint. This
-example function will find the appropriate local certificate (you might have to customize it so it
-will find the exact certificate you want to use):
+Before [Start-DscConfiguration](/powershell/module/psdesiredstateconfiguration/start-dscconfiguration)
+can work, you have to tell the Local Configuration Manager on each target node which certificate to
+use to decrypt the credentials, using the CertificateID resource to verify the certificate's
+thumbprint. This example function will find the appropriate local certificate (you might have to
+customize it so it will find the exact certificate you want to use):
 
 ```powershell
 # Get the certificate that works for encryption
@@ -369,10 +374,10 @@ configuration CredentialEncryptionExample
 
 At this point, you can run the configuration, which will output two files:
 
-- A \*.meta.mof file that configures the Local Configuration Manager to decrypt the credentials using
-  the certificate that is stored on the local machine store and identified by its thumbprint.
-  [`Set-DscLocalConfigurationManager`](https://technet.microsoft.com/library/dn521621.aspx) applies
-  the \*.meta.mof file.
+- A `*.meta.mof `file that configures the Local Configuration Manager to decrypt the credentials
+  using the certificate that is stored on the local machine store and identified by its thumbprint.
+  [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/Set-DscLocalConfigurationManager)
+  applies the `*.meta.mof `file.
 - A MOF file that actually applies the configuration. Start-DscConfiguration applies the
   configuration.
 

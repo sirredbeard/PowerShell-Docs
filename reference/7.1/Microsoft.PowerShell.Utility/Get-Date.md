@@ -3,7 +3,7 @@ external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
 keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 05/21/2020
+ms.date: 08/25/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-date?view=powershell-7.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Get-Date
@@ -16,20 +16,36 @@ Gets the current date and time.
 
 ## SYNTAX
 
-### net (Default)
+### Date (Default)
 
 ```
 Get-Date [[-Date] <DateTime>] [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>]
  [-Minute <Int32>] [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>]
- [-Format <String>] [-AsUTC] [-FromUnixTime] [<CommonParameters>]
+ [-Format <String>] [-AsUTC] [<CommonParameters>]
 ```
 
-### UFormat
+### DateUFormat
 
 ```
 Get-Date [[-Date] <DateTime>] [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>]
  [-Minute <Int32>] [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>]
- [-UFormat <String>] [-FromUnixTime] [<CommonParameters>]
+ -UFormat <String> [<CommonParameters>]
+```
+
+### UnixTimeSeconds
+
+```
+Get-Date -UnixTimeSeconds <Int64> [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>]
+ [-Minute <Int32>] [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>]
+ [-Format <String>] [-AsUTC] [<CommonParameters>]
+```
+
+### UnixTimeSecondsUFormat
+
+```
+Get-Date -UnixTimeSeconds <Int64> [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>]
+ [-Minute <Int32>] [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>]
+ -UFormat <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -217,10 +233,10 @@ directory is created.
 
 ### Example 9: Convert a Unix timestamp
 
-This example converts the **Date** value represented as a Unix timestamp.
+This example converts a Unix time (represented by the number of seconds since 1970-01-01 0:00:00) to DateTime.
 
 ```powershell
-Get-Date -Date 1577836800 -FromUnixTime
+Get-Date -UnixTimeSeconds 1577836800
 ```
 
 ```Output
@@ -260,6 +276,24 @@ Wednesday, January 1, 2020 8:00:00 AM
 
 ## PARAMETERS
 
+### -AsUTC
+
+Converts the date value to the equivalent time in UTC.
+
+This parameter was introduced in PowerShell 7.1.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Date
 
 Specifies a date and time. Time is optional and if not specified, returns 00:00:00.
@@ -272,7 +306,7 @@ For example, in US English:
 
 ```yaml
 Type: System.DateTime
-Parameter Sets: (All)
+Parameter Sets: DateAndFormat, DateAndUFormat
 Aliases: LastWriteTime
 
 Required: False
@@ -360,7 +394,7 @@ Starting in PowerShell 5.0, you can use the following additional formats as valu
 
 ```yaml
 Type: System.String
-Parameter Sets: net
+Parameter Sets: DateAndFormat, UnixTimeSecondsAndFormat
 Aliases:
 
 Required: False
@@ -465,10 +499,28 @@ objects might not be available.
 
 ```yaml
 Type: System.String
-Parameter Sets: UFormat
+Parameter Sets: DateAndUFormat, UnixTimeSecondsAndUFormat
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UnixTimeSeconds
+
+Date and time represented in seconds since January 1, 1970, 0:00:00.
+
+This parameter was introduced in PowerShell 7.1.
+
+```yaml
+Type: System.Int64
+Parameter Sets: UnixTimeSecondsAndFormat, UnixTimeSecondsAndUFormat
+Aliases: UnixTime
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -487,42 +539,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AsUTC
-
-Converts the date value to the equivalent time in UTC.
-
-This parameter was added in PowerShell 7.1.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: net
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -FromUnixTime
-
-When this parameter is used, the value of the **Date** parameter is treated as a Unix timestamp. A
-Unix timestamp is a numeric value that is the of seconds elapsed since
-**1970-01-01​T00:00:00.000Z**.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -571,7 +587,7 @@ The valid **UFormat specifiers** are displayed in the following table:
 | `%c` | Date and time - abbreviated                                             | Thu Jun 27 08:44:18 2019 |
 | `%D` | Date in mm/dd/yy format                                                 | 06/27/19                 |
 | `%d` | Day of the month - 2 digits                                             | 05                       |
-| `%e` | Day of the month - digit preceded by a space                            | \<space\>5               |
+| `%e` | Day of the month - preceded by a space if only a single digit           | \<space\>5               |
 | `%F` | Date in YYYY-mm-dd format, equal to %Y-%m-%d (the ISO 8601 date format) | 2019-06-27               |
 | `%G` | Same as 'Y'                                                             |                          |
 | `%g` | Same as 'y'                                                             |                          |
@@ -592,7 +608,7 @@ The valid **UFormat specifiers** are displayed in the following table:
 | `%t` | Horizontal tab character                                                |                          |
 | `%T` | Time in 24-hour format                                                  | 17:45:52                 |
 | `%U` | Same as 'W'                                                             |                          |
-| `%u` | Day of the week - number                                                | Monday = 1               |
+| `%u` | Day of the week - number                                                | Sunday = 0               |
 | `%V` | Week of the year                                                        | 01-53                    |
 | `%w` | Same as 'u'                                                             |                          |
 | `%W` | Week of the year                                                        | 00-52                    |

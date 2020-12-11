@@ -1,14 +1,12 @@
 ---
 external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
-keywords: powershell,cmdlet
 Locale: en-US
 Module Name: Microsoft.PowerShell.Utility
-ms.date: 1/7/2019
+ms.date: 12/08/2020
 online version: https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/export-csv?view=powershell-7.1&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Export-Csv
 ---
-
 # Export-Csv
 
 ## SYNOPSIS
@@ -439,6 +437,10 @@ pages (like `-Encoding 1251`) or string names of registered code pages (like
 `-Encoding "windows-1251"`). For more information, see the .NET documentation for
 [Encoding.CodePage](/dotnet/api/system.text.encoding.codepage?view=netcore-2.2).
 
+> [!NOTE]
+> **UTF-7*** is no longer recommended to use. In PowerShell 7.1, a warning is written if you
+> specify `utf7` for the **Encoding** parameter.
+
 ```yaml
 Type: System.Text.Encoding
 Parameter Sets: (All)
@@ -630,7 +632,7 @@ Accept wildcard characters: False
 ### -QuoteFields
 
 Specifies the names of the columns that should be quoted. When this parameter is used, only the
-specified columns are quoted.
+specified columns are quoted. This parameter was added in PowerShell 7.0.
 
 ```yaml
 Type: System.String[]
@@ -651,6 +653,8 @@ Specifies when quotes are used in the CSV files. Possible values are:
 - Never - don't quote anything
 - Always - quote everything (default behavior)
 - AsNeeded - only quote fields that contain a delimiter character
+
+This parameter was added in PowerShell 7.0.
 
 ```yaml
 Type: Microsoft.PowerShell.Commands.BaseCsvWritingCommand+QuoteKind
@@ -733,4 +737,3 @@ file.
 [Import-Csv](Import-Csv.md)
 
 [Select-Object](Select-Object.md)
-

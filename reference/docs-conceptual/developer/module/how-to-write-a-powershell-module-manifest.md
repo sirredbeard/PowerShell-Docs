@@ -1,13 +1,8 @@
 ---
-title: "How to Write a PowerShell Module Manifest | Microsoft Docs"
-ms.custom: ""
-ms.date: "10/16/2019"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: e082c2e3-12ce-4032-9caf-bf6b2e0dcf81
-caps.latest.revision: 23
+ms.date: 10/16/2019
+ms.topic: reference
+title: How to Write a PowerShell Module Manifest
+description: How to Write a PowerShell Module Manifest
 ---
 
 # How to write a PowerShell module manifest

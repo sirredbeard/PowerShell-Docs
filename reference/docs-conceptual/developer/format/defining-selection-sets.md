@@ -1,13 +1,8 @@
 ---
-title: "Defining Selection Sets | Microsoft Docs"
-ms.custom: ""
-ms.date: "09/13/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 00dbb5ee-93d4-4914-a082-ef4d8b236b5c
-caps.latest.revision: 16
+ms.date: 09/13/2016
+ms.topic: reference
+title: Defining Selection Sets
+description: Defining Selection Sets
 ---
 # Defining Selection Sets
 
